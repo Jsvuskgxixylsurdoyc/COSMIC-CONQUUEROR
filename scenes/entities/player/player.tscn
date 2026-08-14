@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dxf550mv2w5wr"]
+
+[ext_resource type="Script" uid="uid://kf2suvbxqbj4" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
+[ext_resource type="PackedScene" uid="uid://cgy5gkdm0uf1u" path="res://scenes/entities/player/cameracontroller.tscn" id="2_635qg"]
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_yel1f"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yel1f"]
+
+[node name="Player" type="CharacterBody3D" unique_id=771273259]
+script = ExtResource("1_1hmtu")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621525640]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_yel1f")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=336183784]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("CapsuleShape3D_yel1f")
+disabled = true
+
+[node name="Cameracontroller" parent="." unique_id=103454650 instance=ExtResource("2_635qg")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4372797, 11.701733)
+
+[editable path="Cameracontroller"]

@@ -1,8 +1,6 @@
-[gd_scene format=3 uid="uid://bih05bhvyvlc"]
+[gd_scene format=3 uid="uid://ubkanxibq0ny"]
 
-[ext_resource type="PackedScene" uid="uid://cjq0v2vqi444f" path="res://space_shuttle.glb" id="1_b2cq8"]
-[ext_resource type="Script" uid="uid://du3khydhir8uf" path="res://scenes/levels/player.gd" id="2_xb4v1"]
-[ext_resource type="Script" uid="uid://v3ltfqtuoxvo" path="res://scenes/levels/camera_controller.gd" id="3_urvlt"]
+[ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0, 0.27450982, 0.9647059, 1)
@@ -19,13 +17,7 @@ sky = SubResource("Sky_b2cq8")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_b2cq8"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_xb4v1"]
-
 [sub_resource type="BoxShape3D" id="BoxShape3D_urvlt"]
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_oi3di"]
 
 [node name="level" type="Node3D" unique_id=1947911470]
 
@@ -36,32 +28,12 @@ environment = SubResource("Environment_xb4v1")
 transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545, -0.50000006, 0.75, -0.43301266, 0, 0, 0)
 shadow_enabled = true
 
-[node name="Sketchfab_Scene" parent="." unique_id=1150967998 instance=ExtResource("1_b2cq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.519923, 0, 0)
-
 [node name="entities" type="Node3D" parent="." unique_id=1926560609]
-
-[node name="player" type="CharacterBody3D" parent="entities" unique_id=1761988288]
-transform = Transform3D(0.99803877, -0.062598914, 0, 0.062598914, 0.99803877, 0, 0, 0, 1, -3.0696836, 1.3294057, -3.089542)
-script = ExtResource("2_xb4v1")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="entities/player" unique_id=394124297]
-shape = SubResource("CapsuleShape3D_b2cq8")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="entities/player" unique_id=1888401721]
-transform = Transform3D(0.97471833, 0, -0.22343725, 0, 1, 0, 0.22343725, 0, 0.97471833, 0, 0, 0)
-mesh = SubResource("CapsuleMesh_xb4v1")
-
-[node name="camera controller" type="Node3D" parent="entities/player" unique_id=1818962278]
-transform = Transform3D(0.999825, 0.018708838, 0, -0.018708838, 0.999825, 0, 0, 0, 1, 0, 0, 0)
-script = ExtResource("3_urvlt")
-
-[node name="Camera3D" type="Camera3D" parent="entities/player/camera controller" unique_id=802454739]
-transform = Transform3D(0.99990565, 0.002992615, 0.013408676, -0.007070843, 0.94889796, 0.31550404, -0.011779279, -0.31556898, 0.94882953, 0, 2.5, 4)
 
 [node name="environment" type="Node3D" parent="." unique_id=927425378]
 
 [node name="StaticBody3D" type="StaticBody3D" parent="environment" unique_id=75544285]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20391035, 0)
 
 [node name="CSGBox3D" type="CSGBox3D" parent="environment/StaticBody3D" unique_id=1448530992]
 size = Vector3(40, 0.5, 40)
@@ -70,15 +42,10 @@ size = Vector3(40, 0.5, 40)
 transform = Transform3D(40, 0, 0, 0, 0.5, 0, 0, 0, 40, 0, -0.019642591, -0.4485675)
 shape = SubResource("BoxShape3D_urvlt")
 
-[node name="StaticBody3D2" type="StaticBody3D" parent="environment" unique_id=1176622094]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3.2711315, 1.6109538, -9.898085)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="environment/StaticBody3D2" unique_id=1802496322]
-size = Vector3(10, 10, 1)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/StaticBody3D2" unique_id=1699920328]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 10, -0.108)
-shape = SubResource("BoxShape3D_oi3di")
-
 [node name="Camera3D" type="Camera3D" parent="." unique_id=988123732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248678)
+
+[node name="Entities" type="Node3D" parent="." unique_id=1672535831]
+
+[node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021043181, 0)
