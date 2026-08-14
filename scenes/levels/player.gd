@@ -7,7 +7,6 @@ extends CharacterBody3D
 var movement_input := Vector2.ZERO
 
 func _physics_process(delta: float) -> void:
-	movement_input = Input.get_vector("ui_left","ui_right","ui_up","ui_down")
+	movement_input = Input.get_vector("ui_left","ui_right","ui_up","ui_down").rotated(-camera.global_rotation.y)
 	velocity = Vector3(movement_input.x,0,movement_input.y) * base_speed
 	move_and_slide()
-	
