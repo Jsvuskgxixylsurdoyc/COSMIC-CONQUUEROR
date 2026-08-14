@@ -1,7 +1,7 @@
-[gd_scene format=3 uid="uid://dxf550mv2w5wr"]
+[gd_scene format=3 uid="uid://jliels7ywoak"]
 
 [ext_resource type="Script" uid="uid://kf2suvbxqbj4" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
-[ext_resource type="PackedScene" uid="uid://c2k02145cgrm7" path="res://scenes/entities/player/cameracontroller.tscn" id="2_635qg"]
+[ext_resource type="PackedScene" uid="uid://cgy5gkdm0uf1u" path="res://scenes/entities/player/cameracontroller.tscn" id="2_635qg"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_yel1f"]
 
@@ -20,11 +20,6 @@ shape = SubResource("CapsuleShape3D_yel1f")
 disabled = true
 
 [node name="Cameracontroller" parent="." unique_id=103454650 instance=ExtResource("2_635qg")]
-transform = Transform3D(1, 0, 0, 0, 0.90630776, 0.42261827, 0, -0.42261827, 0.90630776, 0, 2.5, 0)
-min_limit_x = 0.8
-max_limit_x = 0.2
-
-[node name="Camera3D" parent="Cameracontroller" index="0" unique_id=166653984]
-transform = Transform3D(0.9999985, 0.00045760616, -0.0016842708, 0, 0.9650165, 0.26218918, 0.0017453284, -0.26218876, 0.96501505, 0, 2.5, 4.133)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.4372797, 11.701733)
 
 [editable path="Cameracontroller"]

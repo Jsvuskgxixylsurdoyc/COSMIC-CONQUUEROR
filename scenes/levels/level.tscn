@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ubkanxibq0ny"]
 
-[ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/player.tscn" id="2_bovvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0, 0.27450982, 0.9647059, 1)
@@ -18,6 +18,8 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_urvlt"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_377w7"]
 
 [node name="level" type="Node3D" unique_id=1947911470]
 
@@ -42,6 +44,11 @@ size = Vector3(40, 0.5, 40)
 transform = Transform3D(40, 0, 0, 0, 0.5, 0, 0, 0, 40, 0, -0.019642591, -0.4485675)
 shape = SubResource("BoxShape3D_urvlt")
 
+[node name="CSGBox3D" type="CSGBox3D" parent="environment" unique_id=242910057]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.9180903)
+use_collision = true
+size = Vector3(10, 10, 1)
+
 [node name="Camera3D" type="Camera3D" parent="." unique_id=988123732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248678)
 
@@ -49,3 +56,17 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248
 
 [node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021043181, 0)
+
+[node name="CollisionShape3D" parent="Entities/Player" index="1" unique_id=336183784]
+shape = SubResource("CapsuleShape3D_377w7")
+disabled = false
+
+[node name="Cameracontroller" parent="Entities/Player" index="2" unique_id=103454650]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9789568, 0)
+top_level = false
+
+[node name="Camera3D" parent="Entities/Player/Cameracontroller" index="0" unique_id=166653984]
+transform = Transform3D(0.99999845, 0.0004576062, -0.0016842706, 0, 0.9650165, 0.26218918, 0.0017453283, -0.26218876, 0.965015, 0, 0.9, 4)
+
+[editable path="Entities/Player"]
+[editable path="Entities/Player/Cameracontroller"]
