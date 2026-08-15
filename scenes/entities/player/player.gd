@@ -15,9 +15,18 @@ extends CharacterBody3D
 
 @export var base_speed := 4.0
 @export var run_speed := 6.0
+@export var defend_speed := 2.0
+
 @onready var camera = $Cameracontroller/Camera3D
 
 var movement_input := Vector2.ZERO
+var defend :=false:
+	set(value):
+		if not defend and value:
+			skin.defend(true)
+		if defend and not value:
+			skin.defend(false)
+		defend = value
 
 func _physics_process(delta: float) -> void:
 	
@@ -33,7 +42,7 @@ func move_logic(delta) -> void:
 	
 	if movement_input != Vector2.ZERO:
 		var speed = run_speed if is_running else base_speed
-		
+		speed = defend_speed if defend  else speed
 		vel_2d += movement_input * speed * delta
 		vel_2d = vel_2d.limit_length(speed)
 		velocity.x = vel_2d.x
@@ -46,7 +55,6 @@ func move_logic(delta) -> void:
 		velocity.x = vel_2d.x
 		velocity.z = vel_2d.y
 		skin.set_move_state('Idle')
-		
 	
 	
 func jump_logic(delta) -> void:
@@ -61,6 +69,7 @@ func ability_logic() -> void:
 	if Input.is_action_just_pressed("ability"):
 		skin.attack()
 	
+	defend = Input.is_action_pressed("block")
 	
 	
 	

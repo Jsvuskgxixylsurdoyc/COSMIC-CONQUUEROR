@@ -2,11 +2,24 @@
 
 [ext_resource type="PackedScene" uid="uid://bctcp65yp8t3f" path="res://graphics/characters/godette/godette.glb" id="1_816xy"]
 [ext_resource type="Script" uid="uid://cbs5m5opkmod" path="res://scenes/entities/player/godetteskin.gd" id="2_vkpx8"]
+[ext_resource type="PackedScene" uid="uid://cp757r6txb0j6" path="res://graphics/weapons/sword_1handed.gltf" id="3_nqyrg"]
+[ext_resource type="Texture2D" uid="uid://cbf5176yt1e2d" path="res://graphics/weapons/barbarian_texture.png" id="4_grntx"]
+[ext_resource type="PackedScene" uid="uid://dydnnq3ww2uyk" path="res://graphics/weapons/shield.gltf.glb" id="5_k0ns6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k0ns6"]
+albedo_texture = ExtResource("4_grntx")
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_x6wi3"]
+animation = &"Block"
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_k0ns6"]
 animation = &"1H_Melee_Attack_Chop"
 
 [sub_resource type="AnimationNodeOneShot" id="AnimationNodeOneShot_x6wi3"]
+filter_enabled = true
+filters = [".", "Rig/Skeleton3D:chest", "Rig/Skeleton3D:hand.l", "Rig/Skeleton3D:hand.r", "Rig/Skeleton3D:handslot.l", "Rig/Skeleton3D:handslot.r", "Rig/Skeleton3D:head", "Rig/Skeleton3D:hips", "Rig/Skeleton3D:lowerarm.l", "Rig/Skeleton3D:lowerarm.r", "Rig/Skeleton3D:spine", "Rig/Skeleton3D:upperarm.l", "Rig/Skeleton3D:upperarm.r", "Rig/Skeleton3D:wrist.l", "Rig/Skeleton3D:wrist.r", "SecondAttackTimer"]
+fadein_time = 0.2
+fadeout_time = 0.2
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_vkpx8"]
 animation = &"Idle"
@@ -47,21 +60,29 @@ states/running/node = SubResource("AnimationNodeAnimation_grntx")
 states/running/position = Vector2(505.2, 86.4)
 transitions = ["Start", "Idle", SubResource("AnimationNodeStateMachineTransition_k0ns6"), "Idle", "running", SubResource("AnimationNodeStateMachineTransition_x6wi3"), "running", "jump", SubResource("AnimationNodeStateMachineTransition_wu54o"), "jump", "running", SubResource("AnimationNodeStateMachineTransition_ci51q"), "jump", "Idle", SubResource("AnimationNodeStateMachineTransition_htaho"), "Idle", "jump", SubResource("AnimationNodeStateMachineTransition_xlf5c"), "running", "Idle", SubResource("AnimationNodeStateMachineTransition_r8qvr")]
 
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_k0ns6"]
+filter_enabled = true
+filters = ["Rig/Skeleton3D:chest", "Rig/Skeleton3D:hand.l", "Rig/Skeleton3D:hand.r", "Rig/Skeleton3D:handslot.l", "Rig/Skeleton3D:handslot.r", "Rig/Skeleton3D:head", "Rig/Skeleton3D:hips", "Rig/Skeleton3D:lowerarm.l", "Rig/Skeleton3D:lowerarm.r", "Rig/Skeleton3D:root", "Rig/Skeleton3D:spine", "Rig/Skeleton3D:upperarm.l", "Rig/Skeleton3D:upperarm.r", "Rig/Skeleton3D:wrist.l", "Rig/Skeleton3D:wrist.r"]
+
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_rcsr3"]
-graph_offset = Vector2(-357.77557, 65.87836)
+graph_offset = Vector2(-390.21667, 316.45737)
 nodes/output/position = Vector2(768, 208)
 nodes/MoveStateMachine/node = SubResource("AnimationNodeStateMachine_iv6kr")
-nodes/MoveStateMachine/position = Vector2(-128, 160)
+nodes/MoveStateMachine/position = Vector2(-144, -96)
 nodes/AttackOneShot/node = SubResource("AnimationNodeOneShot_x6wi3")
 nodes/AttackOneShot/position = Vector2(480.19855, 155.96414)
-nodes/AttackAnimation/node = SubResource("AnimationNodeAnimation_k0ns6")
-nodes/AttackAnimation/position = Vector2(144, 432)
-node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"MoveStateMachine", &"AttackOneShot", 1, &"AttackAnimation"]
+nodes/Animation/node = SubResource("AnimationNodeAnimation_x6wi3")
+nodes/Animation/position = Vector2(-9.622186, 278.90207)
+nodes/Sheildblend/node = SubResource("AnimationNodeBlend2_k0ns6")
+nodes/Sheildblend/position = Vector2(288, 0)
+nodes/Attack/node = SubResource("AnimationNodeAnimation_k0ns6")
+nodes/Attack/position = Vector2(176, 464)
+node_connections = [&"output", 0, &"AttackOneShot", &"AttackOneShot", 0, &"Sheildblend", &"AttackOneShot", 1, &"Attack", &"Sheildblend", 0, &"MoveStateMachine", &"Sheildblend", 1, &"Animation"]
 
 [node name="godetteskin" unique_id=326520253 instance=ExtResource("1_816xy")]
 script = ExtResource("2_vkpx8")
 
-[node name="Skeleton3D" parent="Rig" parent_id_path=PackedInt32Array(114448206) index="0" unique_id=1448417077]
+[node name="Skeleton3D" parent="Rig" parent_id_path=PackedInt32Array(381930848) index="0" unique_id=496651503]
 bones/1/position = Vector3(0, 0.39206383, 0)
 bones/1/rotation = Quaternion(-1.11122625e-10, 0.043157753, 2.5724098e-09, 0.9990683)
 bones/1/scale = Vector3(0.99999994, 1, 0.99999994)
@@ -88,7 +109,7 @@ bones/10/rotation = Quaternion(2.0985292e-08, 5.1285536e-08, 0.5179393, 0.855417
 bones/10/scale = Vector3(1.0000008, 0.9999997, 0.9999999)
 bones/11/rotation = Quaternion(-4.946142e-10, -1.4597426e-08, -0.026658095, 0.99964464)
 bones/11/scale = Vector3(1.0000001, 1, 1)
-bones/12/rotation = Quaternion(-0.31929126, 0.30052418, -0.22734971, 0.8695116)
+bones/12/rotation = Quaternion(-0.31929126, 0.30052418, -0.22734973, 0.86951166)
 bones/12/scale = Vector3(0.9999998, 0.9999999, 1.0000002)
 bones/13/position = Vector3(-1.5735983e-08, 0.096125126, -0.057499975)
 bones/13/rotation = Quaternion(-1.0244432e-09, -4.24391e-09, 0.7071068, 0.7071067)
@@ -111,7 +132,7 @@ bones/20/rotation = Quaternion(0.2740081, -6.38135e-08, 1.9276132e-07, 0.9617275
 bones/20/scale = Vector3(0.99999994, 0.99999976, 0.99999994)
 bones/21/rotation = Quaternion(-0.5590394, 0.11451276, -0.008627633, 0.82115)
 bones/21/scale = Vector3(0.99999976, 1.0000006, 0.9999992)
-bones/22/rotation = Quaternion(-8.9348905e-05, 0.9202216, -0.39139763, 2.0290994e-05)
+bones/22/rotation = Quaternion(-8.934892e-05, 0.9202217, -0.3913977, 2.0290998e-05)
 bones/22/scale = Vector3(1.0000002, 0.9999979, 1.0000024)
 bones/23/rotation = Quaternion(0.7071068, -2.2930234e-07, -4.6055177e-08, 0.7071068)
 bones/24/position = Vector3(0.21391787, 0.025990263, 0.17386575)
@@ -147,7 +168,25 @@ bones/40/position = Vector3(-0.5108437, 0.78831214, 0.059736922)
 bones/40/rotation = Quaternion(-0.7582528, -1.527369e-07, 0.65196073, -1.1175871e-08)
 bones/40/scale = Vector3(1, 1.0000001, 1)
 
-[node name="AnimationPlayer" parent="." index="1" unique_id=2112055499]
+[node name="RightHandSlotndSlot" type="BoneAttachment3D" parent="Rig/Skeleton3D" index="6" unique_id=45457860]
+transform = Transform3D(5.4387374e-07, -0.14989409, -0.9887016, -0.99999875, 2.3841845e-07, 1.5356464e-07, -2.851514e-07, 0.98870134, -0.14989468, -0.49106073, 0.64102995, 0.106595494)
+bone_name = "handslot.r"
+bone_idx = 13
+
+[node name="sword_1handed2" parent="Rig/Skeleton3D/RightHandSlotndSlot" index="0" unique_id=201107066 instance=ExtResource("3_nqyrg")]
+
+[node name="sword_1handed" parent="Rig/Skeleton3D/RightHandSlotndSlot/sword_1handed2" index="0" unique_id=1822196147]
+surface_material_override/0 = SubResource("StandardMaterial3D_k0ns6")
+
+[node name="LeftHandSlot" type="BoneAttachment3D" parent="Rig/Skeleton3D" index="7" unique_id=503492773]
+transform = Transform3D(2.6229458e-07, 0.26286277, 0.9648328, 0.99999857, 2.9802164e-08, 6.0059955e-07, 4.3752277e-07, 0.9648324, -0.2628633, 0.5077679, 0.63670534, -0.018521108)
+bone_name = "handslot.l"
+bone_idx = 8
+
+[node name="shield_gltf" parent="Rig/Skeleton3D/LeftHandSlot" index="0" unique_id=1746764371 instance=ExtResource("5_k0ns6")]
+transform = Transform3D(1, 0, -7.7360807e-14, 0, 1, 0, -8.2129046e-14, -1.7053026e-13, 1, -5.9604645e-08, -9.1621246e-08, 0.14695859)
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=658913762]
 autoplay = &"Idle"
 
 [node name="AnimationTree" type="AnimationTree" parent="." index="2" unique_id=1064581847]
@@ -156,3 +195,6 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/AttackOneShot/active = false
 parameters/AttackOneShot/internal_active = false
 parameters/AttackOneShot/request = 0
+parameters/Sheildblend/blend_amount = 0.0
+
+[editable path="Rig/Skeleton3D/RightHandSlotndSlot/sword_1handed2"]
