@@ -2,17 +2,12 @@
 
 [ext_resource type="Script" uid="uid://kf2suvbxqbj4" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
 [ext_resource type="PackedScene" uid="uid://c2k02145cgrm7" path="res://scenes/entities/player/cameracontroller.tscn" id="2_635qg"]
-
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_yel1f"]
+[ext_resource type="PackedScene" uid="uid://somcp21nly4h" path="res://scenes/entities/player/godetteskin.tscn" id="3_58kc7"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yel1f"]
 
 [node name="Player" type="CharacterBody3D" unique_id=771273259]
 script = ExtResource("1_1hmtu")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1621525640]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
-mesh = SubResource("CapsuleMesh_yel1f")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=336183784]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
@@ -26,5 +21,7 @@ max_limit_x = 0.2
 
 [node name="Camera3D" parent="Cameracontroller" index="0" unique_id=166653984]
 transform = Transform3D(0.9999985, 0.00045760616, -0.0016842708, 0, 0.9650165, 0.26218918, 0.0017453284, -0.26218876, 0.96501505, 0, 2.5, 4.133)
+
+[node name="godetteskin" parent="." unique_id=326520253 instance=ExtResource("3_58kc7")]
 
 [editable path="Cameracontroller"]

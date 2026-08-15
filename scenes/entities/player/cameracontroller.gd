@@ -8,9 +8,9 @@ extends Node3D
 
 
 
-func _process(delta: float) -> void:
-	var joy_dir = Input.get_vector("pan_left","pan_right","pan_up","pan_down")
-	rotate_from_vector(joy_dir * delta * Vector2(horizontal_accelaration, vertical_accelaration))
+#func _process(delta: float) -> void:
+	#var joy_dir = Input.get_vector("pan_left","pan_right","pan_up","pan_down")
+	#rotate_from_vector(joy_dir * delta * Vector2(horizontal_accelaration, vertical_accelaration))
 	
 	
 

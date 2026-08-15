@@ -62,13 +62,13 @@ shape = SubResource("CapsuleShape3D_377w7")
 disabled = false
 
 [node name="Cameracontroller" parent="Entities/Player" index="2" unique_id=103454650]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.9789568, 0)
+transform = Transform3D(1, 0, 0, 0, 0.9909832, 0.13398619, 0, -0.13398619, 0.9909832, 0, 1.2400461, 0.0002834797)
 top_level = false
 min_limit_x = -1.5
 max_limit_x = 1.5
 
 [node name="Camera3D" parent="Entities/Player/Cameracontroller" index="0" unique_id=166653984]
-transform = Transform3D(0.99999845, 0.0004576062, -0.0016842706, 0, 0.9650165, 0.26218918, 0.0017453283, -0.26218876, 0.965015, 0, 0.9, 4)
+transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05, 0.97824544, 0.20745079, 0.0017425608, -0.2074503, 0.978244, 0, 1.572339, 4.545592)
 
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]
