@@ -16,7 +16,6 @@ extends CharacterBody3D
 @export var base_speed := 4.0
 @export var run_speed := 6.0
 @export var defend_speed := 2.0
-
 @onready var camera = $Cameracontroller/Camera3D
 
 var movement_input := Vector2.ZERO
@@ -27,12 +26,16 @@ var defend :=false:
 		if defend and not value:
 			skin.defend(false)
 		defend = value
+var weapon_active := false
+
 
 func _physics_process(delta: float) -> void:
 	
 	move_logic(delta)
 	jump_logic(delta)
 	ability_logic()
+	if Input.is_action_just_pressed("ui_accept"):
+		skin.hit()
 	move_and_slide()
 	
 func move_logic(delta) -> void:
@@ -43,7 +46,8 @@ func move_logic(delta) -> void:
 	if movement_input != Vector2.ZERO:
 		var speed = run_speed if is_running else base_speed
 		speed = defend_speed if defend  else speed
-		vel_2d += movement_input * speed * delta
+		
+		vel_2d += movement_input * speed * delta * 8.0
 		vel_2d = vel_2d.limit_length(speed)
 		velocity.x = vel_2d.x
 		velocity.z = vel_2d.y
@@ -56,7 +60,6 @@ func move_logic(delta) -> void:
 		velocity.z = vel_2d.y
 		skin.set_move_state('Idle')
 	
-	
 func jump_logic(delta) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_velocity
@@ -66,14 +69,21 @@ func jump_logic(delta) -> void:
 	
 	
 func ability_logic() -> void:
+	  #actual attack
 	if Input.is_action_just_pressed("ability"):
-		skin.attack()
+		if weapon_active:
+			skin.attack()
+		else:
+			skin.cast_spell()
 	
+	#defend
 	defend = Input.is_action_pressed("block")
 	
-	
-	
-	
-	
-	
-	
+	#switch weapon/magic
+	if Input.is_action_just_pressed("switch weapon"):
+		weapon_active = not weapon_active
+		skin.switch_weapon(weapon_active)
+
+func do_squash_and_strech(value: float, duration: float = 0.1):
+	var tween = create_tween()
+	tween.tween_property(skin, "squash_and_strech", value, duration)
