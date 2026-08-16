@@ -63,6 +63,7 @@ func move_logic(delta) -> void:
 func jump_logic(delta) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_velocity
+		do_squash_and_strech(1.2, 0.15)
 		$godetteskin.set_move_state('jump')
 	var gravity = jump_gravity if velocity.y > 0.0 else fall_gravity
 	velocity.y += gravity * delta
@@ -83,7 +84,9 @@ func ability_logic() -> void:
 	if Input.is_action_just_pressed("switch weapon"):
 		weapon_active = not weapon_active
 		skin.switch_weapon(weapon_active)
+		do_squash_and_strech(1.2, 0.15)
 
 func do_squash_and_strech(value: float, duration: float = 0.1):
 	var tween = create_tween()
 	tween.tween_property(skin, "squash_and_strech", value, duration)
+	tween.tween_property(skin,  "squash_and_strech" , 1.0, duration * 1.8).set_ease(Tween.EASE_OUT)

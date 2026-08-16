@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
-sky_top_color = Color(0, 0.27450982, 0.9647059, 1)
+sky_top_color = Color(0.32396206, 0.53820765, 1, 1)
 sky_horizon_color = Color(0.41577387, 0.47665134, 0.6402004, 1)
 ground_horizon_color = Color(0.41577387, 0.47665134, 0.6402004, 1)
 energy_multiplier = 1.75
@@ -57,11 +57,11 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248
 [node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.021043181, 0)
 
-[node name="CollisionShape3D" parent="Entities/Player" index="1" unique_id=336183784]
+[node name="CollisionShape3D" parent="Entities/Player" index="0" unique_id=336183784]
 shape = SubResource("CapsuleShape3D_377w7")
 disabled = false
 
-[node name="Cameracontroller" parent="Entities/Player" index="2" unique_id=103454650]
+[node name="Cameracontroller" parent="Entities/Player" index="1" unique_id=103454650]
 transform = Transform3D(1, 0, 0, 0, 0.9909832, 0.13398619, 0, -0.13398619, 0.9909832, 0, 1.2400461, 0.0002834797)
 top_level = false
 min_limit_x = -1.5

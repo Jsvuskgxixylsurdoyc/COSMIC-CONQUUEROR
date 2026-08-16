@@ -2,12 +2,17 @@ extends Node3D
 
 @onready var move_state_machine = $AnimationTree.get("parameters/MoveStateMachine/playback")
 @onready var extra_animation = $AnimationTree.get_tree_root().get_node('ExtraAnimation')
+@onready var face_material: StandardMaterial3D = $Rig/Skeleton3D/Godette_Head.get_surface_override_material(0)
 var attacking := false
 var squash_and_strech := 1.0:
 	set(value): 
 		squash_and_strech = value
-		scale = Vector3(1,squash_and_strech,1)
-
+		var negative = 1.0 + (1.0 - squash_and_strech)
+		scale = Vector3(negative,squash_and_strech,negative) 
+const faces = {
+	'default': Vector3.ZERO,
+	'blink': Vector3(0,0.5,0)
+}
 func set_move_state(state_name: String) -> void:
 	move_state_machine.travel(state_name)
 
@@ -54,3 +59,12 @@ func hit() -> void:
 	$AnimationTree.set("parameters/ExtraOneshot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	$AnimationTree.set("parameters/AttackOneShot/request",  AnimationNodeOneShot.ONE_SHOT_REQUEST_ABORT)
 	attacking = false
+	
+func change_face(expression):
+	face_material.uv1_offset = faces[expression]
+
+
+func _on_blinktimer_timeout() -> void:
+	change_face('blink')
+	await get_tree().create_timer(0.2).timeout
+	change_face('default')
