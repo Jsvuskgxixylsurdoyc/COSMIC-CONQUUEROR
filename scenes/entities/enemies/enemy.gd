@@ -22,10 +22,16 @@ func move_to_player(delta):
 		rotation.y = rotate_toward(rotation.y, target_angle, delta * 6.0)
 		if position.distance_to(player.position) > attack_radius:
 			velocity = Vector3(target_vec2.x, 0, target_vec2.y) * speed * speed_modifier
-			move_state_machine.travel('walk')
-		else:
-			velocity = Vector3.ZERO
+		
+		# Check if we are actually moving before playing the walk animation!
+		if velocity == Vector3.ZERO:
 			move_state_machine.travel('idle')
+		else:
+			move_state_machine.travel('walk')
+			
+	else:
+		velocity = Vector3.ZERO
+		move_state_machine.travel('idle')
 		move_and_slide()
 
 func stop_movement(start_duration: float, end_duration: float):

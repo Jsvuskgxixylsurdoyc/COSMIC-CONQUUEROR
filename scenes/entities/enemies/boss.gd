@@ -12,14 +12,14 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_attacktimer_timeout() -> void:
-	if position.distance_to(player.position) < 5.0:
+	var dist = position.distance_to(player.position)
+	
+	if dist < 5.0:
 		melee_attack_animation()
-	else:
+	elif dist < 30.0: # This stops the boss from shooting if you run away!
 		range_attack_animation()
-		#pin_attack_animation()
-	# 4 animations
-	# 2 melee attacks 
-	# 2 range attacks
+	else:
+		pass
 func spin_attack_animation() -> void:
 	var tween = create_tween()
 	tween.tween_property(self, "speed", spin_speed, 0.5)

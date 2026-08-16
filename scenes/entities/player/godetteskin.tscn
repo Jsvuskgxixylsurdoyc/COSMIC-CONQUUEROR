@@ -145,7 +145,6 @@ parameters/ExtraOneshot/request = 0
 
 [node name="blinktimer" type="Timer" parent="." index="3" unique_id=802030387]
 wait_time = 2.1
-autostart = true
 
 [connection signal="timeout" from="blinktimer" to="." method="_on_blinktimer_timeout"]
 
