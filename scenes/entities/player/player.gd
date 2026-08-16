@@ -39,7 +39,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func move_logic(delta) -> void:
-	movement_input = Input.get_vector("ui_left","ui_right","ui_up","ui_down").rotated(-camera.global_rotation.y)
+	movement_input = Input.get_vector("left","right","up","down").rotated(-camera.global_rotation.y)
 	var vel_2d = Vector2(velocity.x, velocity.z)
 	var is_running: bool = Input.is_action_pressed("run")
 	

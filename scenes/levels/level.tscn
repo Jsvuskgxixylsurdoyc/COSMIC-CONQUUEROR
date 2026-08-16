@@ -2,7 +2,6 @@
 
 [ext_resource type="PackedScene" uid="uid://df5wb0o4yjevm" path="res://scenes/entities/enemies/boss.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
-[ext_resource type="Script" uid="uid://bi12yra628e8o" path="res://scenes/entities/enemies/boss.gd" id="3_b2cq8"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0.32396206, 0.53820765, 1, 1)
@@ -76,7 +75,6 @@ transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05,
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.537674, 0.10233462, 17.960587)
 collision_layer = 1
 collision_mask = 1
-script = ExtResource("3_b2cq8")
 
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]
