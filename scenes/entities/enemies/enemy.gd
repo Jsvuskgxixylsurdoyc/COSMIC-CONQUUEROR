@@ -15,23 +15,33 @@ var speed_modifier := 1.0
 var rng = RandomNumberGenerator.new()
 
 func move_to_player(delta):
-	if position.distance_to(player.position) < notice_radius:
-		var target_dir = (player.position - position).normalized()
-		var target_vec2 = Vector2(target_dir.x, target_dir.z)
+	var boss_pos2d = Vector2(global_position.x, global_position.z)
+	var player_pos2d = Vector2(player.global_position.x, player.global_position.z)
+	var flat_distance = boss_pos2d.distance_to(player_pos2d)
+	
+	# 1.Are we inside the notice zone?
+	if flat_distance < notice_radius:
+		
+		var target_dir = (player.global_position- global_position).normalized()
+		var target_vec2 = Vector2(target_dir.x,target_dir.z).normalized()
+		
 		var target_angle = -target_vec2.angle() + PI/2
 		rotation.y = rotate_toward(rotation.y, target_angle, delta * 6.0)
-		if position.distance_to(player.position) > attack_radius:
+
+		# 2. Are we outside attack range?
+		if flat_distance > attack_radius:
 			velocity = Vector3(target_vec2.x, 0, target_vec2.y) * speed * speed_modifier
-		
-		# Check if we are actually moving before playing the walk animation!
-		if velocity == Vector3.ZERO:
-			move_state_machine.travel('idle')
-		else:
-			move_state_machine.travel('walk')
 			
-	else:
-		velocity = Vector3.ZERO
-		move_state_machine.travel('idle')
+			if velocity == Vector3.ZERO:
+				move_state_machine.travel('idle')
+			else:
+				move_state_machine.travel('walk')
+				
+				#3. We are inside attack range !
+		else:
+			velocity = Vector3.ZERO
+			move_state_machine.travel('idle')
+
 		move_and_slide()
 
 func stop_movement(start_duration: float, end_duration: float):

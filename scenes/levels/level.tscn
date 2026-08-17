@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://ubkanxibq0ny"]
 
-[ext_resource type="PackedScene" uid="uid://df5wb0o4yjevm" path="res://scenes/entities/enemies/boss.tscn" id="2_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://b5e82ky8e3plm" path="res://scenes/entities/enemies/skeleton_mage.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
@@ -71,10 +71,9 @@ max_limit_x = 1.5
 [node name="Camera3D" parent="Entities/Player/Cameracontroller" index="0" unique_id=166653984]
 transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05, 0.97824544, 0.20745079, 0.0017425608, -0.2074503, 0.978244, 0, 1.572339, 4.545592)
 
-[node name="boss" parent="Entities" unique_id=1669121401 instance=ExtResource("2_b2cq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.537674, 0.10233462, 17.960587)
-collision_layer = 1
-collision_mask = 1
+[node name="SkeletonMage" parent="Entities" unique_id=1669121401 instance=ExtResource("2_b2cq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 6.383336)
+attack_radius = 10.0
 
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]
