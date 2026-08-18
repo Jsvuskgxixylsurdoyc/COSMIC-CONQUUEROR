@@ -13,7 +13,11 @@ var speed_modifier := 1.0
 @export var attack_radius := 3.0
 
 var rng = RandomNumberGenerator.new()
-
+var squash_and_strech := 1.0:
+	set(value): 
+		squash_and_strech = value
+		var negative = 1.0 + (1.0 - squash_and_strech)
+		skin.scale = Vector3(negative,squash_and_strech,negative) 
 func move_to_player(delta):
 	var boss_pos2d = Vector2(global_position.x, global_position.z)
 	var player_pos2d = Vector2(player.global_position.x, player.global_position.z)
@@ -22,7 +26,7 @@ func move_to_player(delta):
 	# 1.Are we inside the notice zone?
 	if flat_distance < notice_radius:
 		
-		var target_dir = (player.global_position- global_position).normalized()
+		var target_dir = (player.global_position - global_position).normalized()
 		var target_vec2 = Vector2(target_dir.x,target_dir.z).normalized()
 		
 		var target_angle = -target_vec2.angle() + PI/2
@@ -41,7 +45,10 @@ func move_to_player(delta):
 		else:
 			velocity = Vector3.ZERO
 			move_state_machine.travel('idle')
-
+		move_and_slide()
+	else:
+		velocity = Vector3.ZERO
+		move_state_machine.travel('idle')
 		move_and_slide()
 
 func stop_movement(start_duration: float, end_duration: float):
@@ -50,3 +57,13 @@ func stop_movement(start_duration: float, end_duration: float):
 	tween.tween_property(self, "speed_modifier", 1.0, end_duration)
 	
 	
+
+func hit() -> void:
+	if not $timers/InvulTimer.time_left:
+		do_squash_and_strech(1.2, 0.15)
+		$timers/InvulTimer.start()
+
+func do_squash_and_strech(value: float, duration: float = 0.1):
+	var tween = create_tween()
+	tween.tween_property(self, "squash_and_strech", value, duration)
+	tween.tween_property(self,  "squash_and_strech" , 1.0, duration * 1.8).set_ease(Tween.EASE_OUT)

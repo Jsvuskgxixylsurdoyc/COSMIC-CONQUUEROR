@@ -14,3 +14,7 @@ script = ExtResource("1_yfmsl")
 [node name="timers" type="Node" parent="." unique_id=1615618902]
 
 [node name="Attacktimer" type="Timer" parent="timers" unique_id=1483830559]
+
+[node name="InvulTimer" type="Timer" parent="timers" unique_id=629202671]
+wait_time = 0.8
+one_shot = true

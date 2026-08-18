@@ -41,10 +41,10 @@ func _defend_change(value: float) -> void:
 
 func switch_weapon(weapon_active: bool) -> void:
 	if weapon_active:
-		$Rig/Skeleton3D/RightHandSlotndSlot/sword_1handed2.show()
+		$Rig/Skeleton3D/RightHandSlotndSlot/sword2.show()
 		$Rig/Skeleton3D/RightHandSlotndSlot/wand2.hide()
 	else:
-		$Rig/Skeleton3D/RightHandSlotndSlot/sword_1handed2.hide()
+		$Rig/Skeleton3D/RightHandSlotndSlot/sword2.hide()
 		$Rig/Skeleton3D/RightHandSlotndSlot/wand2.show()
 
 
@@ -68,3 +68,7 @@ func _on_blinktimer_timeout() -> void:
 	change_face('blink')
 	await get_tree().create_timer(0.2).timeout
 	change_face('default')
+
+
+func can_damage(value: bool):
+	$Rig/Skeleton3D/RightHandSlotndSlot/sword2.can_damage = value

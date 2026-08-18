@@ -6,7 +6,10 @@ const simple_attacks = {
 	'range' : "1H_Melee_Attack_Stab" ,
 }
 @export var spin_speed = 6
+var can_damage_toggle := false
 
+func _process(delta: float) -> void:
+	attack_logic()
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)
 
@@ -40,3 +43,21 @@ func  melee_attack_animation() ->void:
 	$AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 	
 	
+
+
+func hit():
+	if not $timers/InvulTimer.time_left:
+		print('boss was hit')
+		$timers/InvulTimer.start()
+		
+		
+func can_damage(value: bool) -> void:
+	can_damage_toggle = value
+	
+	
+	
+func attack_logic() -> void:
+	if can_damage_toggle:
+		var collider = $skin/Rig/Skeleton3D/Nagonford_Axe/Nagonford_Axe/RayCast3D.get_collider()
+		if collider and 'hit' in collider:
+			collider.hit()
