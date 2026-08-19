@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://kf2suvbxqbj4" path="res://scenes/entities/player/player.gd" id="1_1hmtu"]
 [ext_resource type="PackedScene" uid="uid://c2k02145cgrm7" path="res://scenes/entities/player/cameracontroller.tscn" id="2_635qg"]
 [ext_resource type="PackedScene" uid="uid://somcp21nly4h" path="res://scenes/entities/player/godetteskin.tscn" id="3_58kc7"]
+[ext_resource type="PackedScene" uid="uid://hnnevv4i1l0i" path="res://scenes/entities/player/ui.tscn" id="4_nh4ur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yel1f"]
 
@@ -25,5 +26,13 @@ max_limit_x = 0.2
 transform = Transform3D(0.9999985, 0.00045760616, -0.0016842708, 0, 0.9650165, 0.26218918, 0.0017453284, -0.26218876, 0.96501505, 0, 2.5, 4.133)
 
 [node name="godetteskin" parent="." unique_id=326520253 instance=ExtResource("3_58kc7")]
+
+[node name="UI" parent="." unique_id=1707512771 instance=ExtResource("4_nh4ur")]
+
+[node name="Timers" type="Node" parent="." unique_id=339231065]
+
+[node name="InvulTimer" type="Timer" parent="Timers" unique_id=1563174169]
+wait_time = 0.8
+one_shot = true
 
 [editable path="Cameracontroller"]

@@ -8,7 +8,7 @@ const simple_attacks = {
 @export var spin_speed = 6
 var can_damage_toggle := false
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	attack_logic()
 func _physics_process(delta: float) -> void:
 	move_to_player(delta)
@@ -36,6 +36,11 @@ func range_attack_animation() -> void:
 	attack_animation.animation = simple_attacks['range']
 	$AnimationTree.set("parameters/AttackOneShot/request", AnimationNodeOneShot.ONE_SHOT_REQUEST_FIRE)
 
+func shoot_fireball() -> void:
+	var direction = (player.position - position).normalized()
+	var dir_2d = Vector2(direction.x, direction.z)
+	var pos = $skin/Rig/Skeleton3D/Nagonford_Axe/Nagonford_Axe/Marker3D.global_position
+	cast_spell.emit('fireball',pos, dir_2d, 3.0)
 
 
 func  melee_attack_animation() ->void:

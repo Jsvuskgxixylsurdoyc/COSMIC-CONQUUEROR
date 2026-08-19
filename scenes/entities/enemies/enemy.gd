@@ -1,4 +1,5 @@
 class_name Enemy
+
 extends CharacterBody3D
 
 @onready var move_state_machine = $AnimationTree.get("parameters/MoveStateMachine/playback")
@@ -12,6 +13,7 @@ var speed_modifier := 1.0
 @export var notice_radius := 30.0
 @export var attack_radius := 3.0
 
+signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
 var rng = RandomNumberGenerator.new()
 var squash_and_strech := 1.0:
 	set(value): 

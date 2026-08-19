@@ -17,8 +17,10 @@ var speed_modifier := 1.0
 @export var run_speed := 6.0
 @export var defend_speed := 2.0
 @onready var camera = $Cameracontroller/Camera3D
+@onready var ui = $UI
 
 var movement_input := Vector2.ZERO
+var last_movement_input := Vector2(0,1)
 var defend :=false:
 	set(value):
 		if not defend and value:
@@ -27,9 +29,17 @@ var defend :=false:
 			skin.defend(false)
 		defend = value
 var weapon_active := true
+var health = 5:
+	set(value):
+		ui.update_health(value, value - health)
+		health = value
+
+
+signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
 
 func _ready() -> void:
 	skin.switch_weapon(weapon_active)
+	ui.setup(health)
 
 
 func _physics_process(delta: float) -> void:
@@ -62,7 +72,9 @@ func move_logic(delta) -> void:
 		velocity.x = vel_2d.x
 		velocity.z = vel_2d.y
 		skin.set_move_state('Idle')
-	
+
+	if movement_input:
+		last_movement_input = movement_input.normalized()
 func jump_logic(delta) -> void:
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = -jump_velocity
@@ -90,8 +102,12 @@ func ability_logic() -> void:
 		do_squash_and_strech(1.2, 0.15)
 
 func hit():
-	skin.hit()
-	stop_movement(0.3,0.3)
+	if not $Timers/InvulTimer.time_left:
+		skin.hit()
+		stop_movement(0.3,0.3)
+		health -= 1
+		$Timers/InvulTimer.start()
+	
 func do_squash_and_strech(value: float, duration: float = 0.1):
 	var tween = create_tween()
 	tween.tween_property(skin, "squash_and_strech", value, duration)
@@ -103,3 +119,6 @@ func stop_movement(start_duration: float, end_duration: float):
 	var tween = create_tween()
 	tween.tween_property(self, "speed_modifier", 0.0, start_duration)
 	tween.tween_property(self, "speed_modifier", 1.0, end_duration)
+
+func shoot_fireball(pos: Vector3) -> void:
+	cast_spell.emit('fireball', pos, last_movement_input, 1.0)
