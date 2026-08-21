@@ -39,6 +39,11 @@ one_shot = true
 wait_time = 0.2
 autostart = true
 
+[node name="StaminaRecoveryTimer" type="Timer" parent="Timers" unique_id=267479542]
+wait_time = 0.15
+autostart = true
+
 [connection signal="timeout" from="Timers/EnergyRecoveryTimer" to="." method="_on_energy_recovery_timer_timeout"]
+[connection signal="timeout" from="Timers/StaminaRecoveryTimer" to="." method="_on_stamina_recovery_timer_timeout"]
 
 [editable path="Cameracontroller"]

@@ -41,11 +41,18 @@ var health = 5:
 		health = value
 var energy = 100:
 	set(value):
-		energy = value
+		energy = min(100,value)
 		ui.update_energy(energy)
+var stamina = 100:
+	set(value):
+		ui.update_stamina(stamina, value)
+		stamina = clamp(value,0,100)
+
 enum spells {FIREBALL, HEAL}
 var current_spell = spells.FIREBALL
 signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
+
+
 
 func _ready() -> void:
 	weapon_active = true
@@ -62,7 +69,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_accept"):
 		skin.hit()
 	move_and_slide()
-	
+
+
 func move_logic(delta) -> void:
 	movement_input = Input.get_vector("left","right","up","down").rotated(-camera.global_rotation.y)
 	var vel_2d = Vector2(velocity.x, velocity.z)
@@ -88,14 +96,15 @@ func move_logic(delta) -> void:
 	if movement_input:
 		last_movement_input = movement_input.normalized()
 func jump_logic(delta) -> void:
-	if Input.is_action_just_pressed("jump") and is_on_floor():
+	if Input.is_action_just_pressed("jump") and is_on_floor() and stamina >= 20:
 		velocity.y = -jump_velocity
 		do_squash_and_strech(1.2, 0.15)
+		stamina -= 20
 		$godetteskin.set_move_state('jump')
 	var gravity = jump_gravity if velocity.y > 0.0 else fall_gravity
 	velocity.y += gravity * delta
-	
-	
+
+
 func ability_logic() -> void:
 	  #actual attack
 	if Input.is_action_just_pressed("ability"):
@@ -147,4 +156,8 @@ func shoot_magic(pos: Vector3) -> void:
 
 
 func _on_energy_recovery_timer_timeout() -> void:
-	energy += 1
+	energy += 1 
+
+
+func _on_stamina_recovery_timer_timeout() -> void:
+	stamina += 1
