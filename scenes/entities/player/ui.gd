@@ -3,6 +3,7 @@ extends Control
 
 @onready var heart_container = $hearts/MarginContainer/HBoxContainer
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
+@onready var energy_bar = $EnergyBar/MarginContainer/TextureProgressBar
 var heart_scene: PackedScene = preload("res://scenes/entities/player/heart.tscn")
 var fire_texture = preload("res://graphics/ui/fire.png")
 var heal_texture = preload("res://graphics/ui/heal.png")
@@ -40,3 +41,7 @@ func update_spell(spells, current_spell):
 		spell_texture.texture = fire_texture
 	if current_spell == spells.HEAL:
 		spell_texture.texture = heal_texture
+
+
+func update_energy(value: int) -> void:
+	energy_bar.value = value

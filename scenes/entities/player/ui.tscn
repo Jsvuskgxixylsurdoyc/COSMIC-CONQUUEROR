@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://bhipdsmw3lnge" path="res://scenes/entities/player/ui.gd" id="1_t1uvp"]
 [ext_resource type="Texture2D" uid="uid://3vh0pug1ilge" path="res://graphics/ui/fire.png" id="2_rgxe2"]
+[ext_resource type="Texture2D" uid="uid://gi44t0kmhjr8" path="res://graphics/ui/bar_color.png" id="3_4r2x4"]
 
 [node name="UI" type="Control" unique_id=1707512771]
 layout_mode = 3
@@ -48,3 +49,22 @@ layout_mode = 2
 texture = ExtResource("2_rgxe2")
 expand_mode = 2
 stretch_mode = 4
+
+[node name="EnergyBar" type="Control" parent="." unique_id=1390660542]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="MarginContainer" type="MarginContainer" parent="EnergyBar" unique_id=1445678970]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 50
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="EnergyBar/MarginContainer" unique_id=2049211850]
+layout_mode = 2
+value = 100.0
+texture_under = ExtResource("3_4r2x4")
+texture_progress = ExtResource("3_4r2x4")
+tint_under = Color(0.14901961, 0.14901961, 0.14901961, 1)

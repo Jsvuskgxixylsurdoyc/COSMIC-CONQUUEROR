@@ -39,7 +39,10 @@ var health = 5:
 	set(value):
 		ui.update_health(value, value - health)
 		health = value
-
+var energy = 100:
+	set(value):
+		energy = value
+		ui.update_energy(energy)
 enum spells {FIREBALL, HEAL}
 var current_spell = spells.FIREBALL
 signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
@@ -99,8 +102,10 @@ func ability_logic() -> void:
 		if weapon_active:
 			skin.attack()
 		else:
-			skin.cast_spell()
-	
+			if energy >= 20:
+				skin.cast_spell()
+				stop_movement(0.3, 0.8)
+				energy -= 20
 	#defend
 	defend = Input.is_action_pressed("block")
 	
@@ -139,3 +144,7 @@ func shoot_magic(pos: Vector3) -> void:
 		cast_spell.emit('fireball', pos, last_movement_input, 1.0)
 	if current_spell == spells.HEAL:
 		health += 1
+
+
+func _on_energy_recovery_timer_timeout() -> void:
+	energy += 1
