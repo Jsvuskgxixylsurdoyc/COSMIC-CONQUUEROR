@@ -28,18 +28,27 @@ var defend :=false:
 		if defend and not value:
 			skin.defend(false)
 		defend = value
-var weapon_active := true
+var weapon_active := true:
+	set(value):
+		weapon_active = value
+		if weapon_active:
+			ui.get_node("Spells").hide()
+		else:
+			ui.get_node("Spells").show()
 var health = 5:
 	set(value):
 		ui.update_health(value, value - health)
 		health = value
 
-
+enum spells {FIREBALL, HEAL}
+var current_spell = spells.FIREBALL
 signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
 
 func _ready() -> void:
+	weapon_active = true
 	skin.switch_weapon(weapon_active)
 	ui.setup(health)
+
 
 
 func _physics_process(delta: float) -> void:
@@ -100,6 +109,11 @@ func ability_logic() -> void:
 		weapon_active = not weapon_active
 		skin.switch_weapon(weapon_active)
 		do_squash_and_strech(1.2, 0.15)
+	if Input.is_action_just_pressed("switch spell") and not skin.attacking:
+		current_spell = spells[spells.keys()[(int(current_spell) + 1) % len(spells)]]
+		ui.update_spell(spells, current_spell)
+
+
 
 func hit():
 	if not $Timers/InvulTimer.time_left:
@@ -107,7 +121,7 @@ func hit():
 		stop_movement(0.3,0.3)
 		health -= 1
 		$Timers/InvulTimer.start()
-	
+
 func do_squash_and_strech(value: float, duration: float = 0.1):
 	var tween = create_tween()
 	tween.tween_property(skin, "squash_and_strech", value, duration)
@@ -120,5 +134,8 @@ func stop_movement(start_duration: float, end_duration: float):
 	tween.tween_property(self, "speed_modifier", 0.0, start_duration)
 	tween.tween_property(self, "speed_modifier", 1.0, end_duration)
 
-func shoot_fireball(pos: Vector3) -> void:
-	cast_spell.emit('fireball', pos, last_movement_input, 1.0)
+func shoot_magic(pos: Vector3) -> void:
+	if current_spell == spells.FIREBALL:
+		cast_spell.emit('fireball', pos, last_movement_input, 1.0)
+	if current_spell == spells.HEAL:
+		health += 1
