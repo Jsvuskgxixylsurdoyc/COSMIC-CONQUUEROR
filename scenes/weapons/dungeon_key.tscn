@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d3pa0lqnas02q"]
+
+[ext_resource type="PackedScene" uid="uid://gd0s7w8i6udx" path="res://graphics/objects/darkest_dungeon_key.glb" id="1_pwwgo"]
+[ext_resource type="Script" uid="uid://b5m53ydmq4c22" path="res://dungeon_key.gd" id="2_ug4jr"]
+
+[node name="dungeon key" unique_id=105854042 instance=ExtResource("1_pwwgo")]
+transform = Transform3D(0.009, 0, 0, 0, 0.009, 0, 0, 0, 0.009, 0, 0, 0)
+script = ExtResource("2_ug4jr")
+
+[node name="Darkest_Dungeon_Key_Key_Brass_0" parent="Sketchfab_model/5007614bb25f44feb18d6bbfc3dba2c6_fbx/RootNode/Darkest_Dungeon_Key" parent_id_path=PackedInt32Array(1016493441) index="0" unique_id=1436138545]
+layers = 1023
+
+[connection signal="visibility_changed" from="Sketchfab_model/5007614bb25f44feb18d6bbfc3dba2c6_fbx/RootNode/Darkest_Dungeon_Key/Darkest_Dungeon_Key_Key_Brass_0" to="." method="_on_body_entered"]

@@ -1,7 +1,9 @@
 [gd_scene format=3 uid="uid://ubkanxibq0ny"]
 
 [ext_resource type="Script" uid="uid://bwxa37sr10quu" path="res://scenes/levels/level.gd" id="1_b2cq8"]
+[ext_resource type="PackedScene" uid="uid://d2m3t0doy8nno" path="res://sketchfab_scene.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://cwsgptckwik2k" path="res://scenes/weapons/space_key.tscn" id="4_xb4v1"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0.32396206, 0.53820765, 1, 1)
@@ -18,8 +20,6 @@ sky = SubResource("Sky_b2cq8")
 tonemap_mode = 2
 glow_enabled = true
 
-[sub_resource type="BoxShape3D" id="BoxShape3D_urvlt"]
-
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_377w7"]
 
 [node name="level" type="Node3D" unique_id=1947911470]
@@ -34,20 +34,8 @@ shadow_enabled = true
 
 [node name="environment" type="Node3D" parent="." unique_id=927425378]
 
-[node name="StaticBody3D" type="StaticBody3D" parent="environment" unique_id=75544285]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.20391035, 0)
-
-[node name="CSGBox3D" type="CSGBox3D" parent="environment/StaticBody3D" unique_id=1448530992]
-size = Vector3(40, 0.5, 40)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="environment/StaticBody3D" unique_id=1801766910]
-transform = Transform3D(40, 0, 0, 0, 0.5, 0, 0, 0, 40, 0, -0.019642591, -0.4485675)
-shape = SubResource("BoxShape3D_urvlt")
-
-[node name="CSGBox3D" type="CSGBox3D" parent="environment" unique_id=242910057]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -5.9180903)
-use_collision = true
-size = Vector3(10, 10, 1)
+[node name="Sketchfab_Scene" parent="environment" unique_id=834737464 instance=ExtResource("2_b2cq8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1467197, 0, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=988123732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248678)
@@ -55,7 +43,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248
 [node name="Entities" type="Node3D" parent="." unique_id=1672535831]
 
 [node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 19.356556, 0.03965211, -19.338175)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.085, -4.348751, -41.900444)
 
 [node name="CollisionShape3D" parent="Entities/Player" index="0" unique_id=336183784]
 shape = SubResource("CapsuleShape3D_377w7")
@@ -71,6 +59,11 @@ max_limit_x = 1.5
 transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05, 0.97824544, 0.20745079, 0.0017425608, -0.2074503, 0.978244, 0, 1.572339, 4.545592)
 
 [node name="projectiles" type="Node3D" parent="." unique_id=1164612750]
+
+[node name="Node3D" type="Node3D" parent="." unique_id=301606698]
+
+[node name="SpaceKey" parent="Node3D" unique_id=1692060292 instance=ExtResource("4_xb4v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.92757, -2.3340793, -42.61315)
 
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]

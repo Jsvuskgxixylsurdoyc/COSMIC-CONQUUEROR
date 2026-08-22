@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cwsgptckwik2k"]
+
+[ext_resource type="Script" uid="uid://xfnasnqv5k1l" path="res://space_key.gd" id="1_v87ai"]
+[ext_resource type="PackedScene" uid="uid://gd0s7w8i6udx" path="res://graphics/objects/darkest_dungeon_key.glb" id="2_77n5s"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_v87ai"]
+size = Vector3(1, 2.2011108, 1)
+
+[node name="SpaceKey" type="Area3D" unique_id=1692060292]
+script = ExtResource("1_v87ai")
+
+[node name="Sketchfab_Scene" parent="." unique_id=105854042 instance=ExtResource("2_77n5s")]
+transform = Transform3D(0.009, 0, 0, 0, 0.009, 0, 0, 0, 0.009, 0, 0, 0)
+
+[node name="Darkest_Dungeon_Key_Key_Brass_0" parent="Sketchfab_Scene/Sketchfab_model/5007614bb25f44feb18d6bbfc3dba2c6_fbx/RootNode/Darkest_Dungeon_Key" parent_id_path=PackedInt32Array(105854042, 1016493441) index="0" unique_id=1436138545]
+layers = 1023
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1894851034]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0039221644, 0.28640518, 0)
+shape = SubResource("BoxShape3D_v87ai")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+
+[editable path="Sketchfab_Scene"]
