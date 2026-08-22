@@ -37,8 +37,11 @@ var weapon_active := true:
 			ui.get_node("Spells").show()
 var health = 5:
 	set(value):
+		value = min(value, 5)
 		ui.update_health(value, value - health)
 		health = value
+		if health <= 0:
+			get_tree().quit()
 var energy = 100:
 	set(value):
 		energy = min(100,value)
@@ -46,6 +49,10 @@ var energy = 100:
 var stamina = 100:
 	set(value):
 		ui.update_stamina(stamina, value)
+		if stamina == 100 and value < 100:
+			ui.change_stamina_alpha(1.0)
+		if value == 100:
+			ui.change_stamina_alpha(0.0)
 		stamina = clamp(value,0,100)
 
 enum spells {FIREBALL, HEAL}

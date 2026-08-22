@@ -54,7 +54,7 @@ func hit():
 	if not $timers/InvulTimer.time_left:
 		print('boss was hit')
 		$timers/InvulTimer.start()
-		
+		health -= 1
 		
 func can_damage(value: bool) -> void:
 	can_damage_toggle = value

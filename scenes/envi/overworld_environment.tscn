@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://cmqapy07akx1x"]
+
+[ext_resource type="PackedScene" uid="uid://d0ej14k8nbfpc" path="res://graphics/environment/overworld_environment.glb" id="1_r3ho8"]
+[ext_resource type="Texture2D" uid="uid://bd4q673jd55v3" path="res://graphics/environment/overworld_environment_nagon_texture.png" id="2_jcapr"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hwglk"]
+albedo_texture = ExtResource("2_jcapr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_45x2w"]
+albedo_texture = ExtResource("2_jcapr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_r3ho8"]
+albedo_texture = ExtResource("2_jcapr")
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_k6g4s"]
+albedo_texture = ExtResource("2_jcapr")
+
+[node name="overworld_environment" unique_id=1590863768 instance=ExtResource("1_r3ho8")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -136.31606)
+
+[node name="Floor" parent="." index="0" unique_id=869077316]
+surface_material_override/0 = SubResource("StandardMaterial3D_hwglk")
+
+[node name="Rocks2" parent="." index="1" unique_id=1215317865]
+surface_material_override/0 = SubResource("StandardMaterial3D_45x2w")
+
+[node name="Rocks" parent="." index="2" unique_id=1293331340]
+surface_material_override/0 = SubResource("StandardMaterial3D_r3ho8")
+
+[node name="Tunnel" parent="." index="3" unique_id=146877457]
+surface_material_override/0 = SubResource("StandardMaterial3D_k6g4s")

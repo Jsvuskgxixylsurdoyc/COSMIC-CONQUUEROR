@@ -6,14 +6,19 @@ extends CharacterBody3D
 @onready var attack_animation = $AnimationTree.get_tree_root().get_node('AttackAnimation')
 @onready var player = get_tree().get_first_node_in_group('Player')
 @onready var skin = get_node('skin')
-
+@warning_ignore("unused_signal")
 @export var walk_speed := 2.0
 @export var speed = walk_speed
 var speed_modifier := 1.0
 @export var notice_radius := 30.0
 @export var attack_radius := 3.0
+var health = 5:
+	set(value):
+		health = value
+		if health <= 0:
+			queue_free()
 
-signal cast_spell(type: String, pos: Vector3, direction: Vector2, size: float)
+signal cast_spell(_type: String, pos: Vector3, direction: Vector2, size: float)
 var rng = RandomNumberGenerator.new()
 var squash_and_strech := 1.0:
 	set(value): 
@@ -64,6 +69,7 @@ func hit() -> void:
 	if not $timers/InvulTimer.time_left:
 		do_squash_and_strech(1.2, 0.15)
 		$timers/InvulTimer.start()
+		health -= 1
 
 func do_squash_and_strech(value: float, duration: float = 0.1):
 	var tween = create_tween()
