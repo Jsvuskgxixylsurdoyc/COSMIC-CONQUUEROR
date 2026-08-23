@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://dp0e6d5ndiv13"]
+
+[ext_resource type="Script" uid="uid://bn4gse46l2q51" path="res://scenes/envi/spacekey_2_wall.gd" id="1_5laig"]
+[ext_resource type="PackedScene" uid="uid://kbev1shlu7a7" path="res://graphics/environment/dungeon/wall_arched.gltf" id="1_lg1gb"]
+[ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="2_5laig"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_niyxw"]
+size = Vector3(4.4188232, 4.159607, 1.7575684)
+
+[sub_resource type="LabelSettings" id="LabelSettings_rmrhl"]
+font = ExtResource("2_5laig")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_yfrv4"]
+font = ExtResource("2_5laig")
+font_size = 46
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rmrhl"]
+size = Vector3(4.0421295, 4.4521484, 1)
+
+[node name="spacekey2 wall" type="StaticBody3D" unique_id=1163413035]
+script = ExtResource("1_5laig")
+
+[node name="wall_arched2" parent="." unique_id=75079604 instance=ExtResource("1_lg1gb")]
+
+[node name="TriggerZone" type="Area3D" parent="." unique_id=147818497]
+collision_layer = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone" unique_id=462487457]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15863037, 1.9708557, -0.03161621)
+shape = SubResource("BoxShape3D_niyxw")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=731566939]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=928768713]
+offset_left = 5.0
+offset_top = 175.0
+offset_right = 801.0
+offset_bottom = 351.0
+text = "i have hands that never touch, a face that never smiles, and i run a face that 
+that never ends across the darkness. what am i?
+answer in small letters without leaving any space..
+"
+label_settings = SubResource("LabelSettings_rmrhl")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=332429530]
+offset_left = 6.0
+offset_top = 277.0
+offset_right = 368.0
+offset_bottom = 354.0
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=262459560]
+offset_left = 421.0
+offset_top = 281.0
+offset_right = 618.0
+offset_bottom = 348.0
+text = "SUBMIT
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=894750977]
+offset_left = 26.0
+offset_top = 404.0
+offset_right = 221.0
+offset_bottom = 453.0
+text = "pop up text"
+label_settings = SubResource("LabelSettings_yfrv4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=763277827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.04825592, 1.7260742, 0)
+shape = SubResource("BoxShape3D_rmrhl")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

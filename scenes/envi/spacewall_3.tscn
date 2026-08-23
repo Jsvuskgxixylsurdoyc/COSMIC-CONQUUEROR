@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://cfwaxgfdicvm4"]
+
+[ext_resource type="Script" uid="uid://2goom8eqn7pf" path="res://scenes/envi/spacewall_3.gd" id="1_m06vg"]
+[ext_resource type="PackedScene" uid="uid://kbev1shlu7a7" path="res://graphics/environment/dungeon/wall_arched.gltf" id="1_oee6s"]
+[ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="2_2li0t"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_m06vg"]
+size = Vector3(4.374756, 4.513794, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xeqmb"]
+size = Vector3(4.4188232, 4.159607, 1.7575684)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ckcr0"]
+font = ExtResource("2_2li0t")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_ch8lr"]
+font = ExtResource("2_2li0t")
+font_size = 46
+
+[node name="spacewall3" type="StaticBody3D" unique_id=755951371]
+script = ExtResource("1_m06vg")
+
+[node name="wall_arched2" parent="." unique_id=75079604 instance=ExtResource("1_oee6s")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=938124962]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.15856934, 1.756897, 0)
+shape = SubResource("BoxShape3D_m06vg")
+
+[node name="TriggerZone" type="Area3D" parent="." unique_id=1284414348]
+collision_layer = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone" unique_id=1266837466]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15863037, 1.9708557, -0.03161621)
+shape = SubResource("BoxShape3D_xeqmb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=631944217]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=543630778]
+offset_left = 5.0
+offset_top = 175.0
+offset_right = 801.0
+offset_bottom = 351.0
+text = "the more of me you take away, the heavier i become. i can crush a star 
+into a ghost, yet i take up zero space. what am i?
+answer in small letters without leaving any space..
+"
+label_settings = SubResource("LabelSettings_ckcr0")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=1735689295]
+offset_left = 6.0
+offset_top = 277.0
+offset_right = 368.0
+offset_bottom = 354.0
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1251681307]
+offset_left = 421.0
+offset_top = 281.0
+offset_right = 618.0
+offset_bottom = 348.0
+text = "SUBMIT
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=1675607325]
+offset_left = 26.0
+offset_top = 404.0
+offset_right = 221.0
+offset_bottom = 453.0
+text = "pop up text"
+label_settings = SubResource("LabelSettings_ch8lr")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

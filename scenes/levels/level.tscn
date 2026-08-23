@@ -4,6 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://d2m3t0doy8nno" path="res://sketchfab_scene.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
 [ext_resource type="PackedScene" uid="uid://cwsgptckwik2k" path="res://scenes/weapons/space_key.tscn" id="4_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://cj3mgal6dw4s1" path="res://scenes/envi/question_terminal.tscn" id="6_mbbpy"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0.32396206, 0.53820765, 1, 1)
@@ -35,7 +36,7 @@ shadow_enabled = true
 [node name="environment" type="Node3D" parent="." unique_id=927425378]
 
 [node name="Sketchfab_Scene" parent="environment" unique_id=834737464 instance=ExtResource("2_b2cq8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.1467197, 0, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.14270663, 0.23112679, -0.009460449)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=988123732]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248678)
@@ -65,5 +66,11 @@ transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05,
 [node name="SpaceKey" parent="Node3D" unique_id=1692060292 instance=ExtResource("4_xb4v1")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.92757, -2.3340793, -42.61315)
 
+[node name="questionTerminal" parent="." unique_id=866031621 node_paths=PackedStringArray("blocking_wall") instance=ExtResource("6_mbbpy")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5850315, 0, -11.688248)
+blocking_wall = NodePath("")
+
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]
+[editable path="questionTerminal"]
+[editable path="questionTerminal/Sketchfab_Scene"]

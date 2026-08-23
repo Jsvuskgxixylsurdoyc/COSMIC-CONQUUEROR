@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cj3mgal6dw4s1"]
+
+[ext_resource type="Script" uid="uid://cvhtgfcl2xawt" path="res://scenes/envi/question_terminal.gd" id="1_adn5o"]
+[ext_resource type="PackedScene" uid="uid://wid8bsjmout3" path="res://scenes/weapons/chest_11mb.glb" id="1_rd8k6"]
+[ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="3_i43mg"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xeadb"]
+size = Vector3(4.04834, 1.5241699, 3.0107422)
+
+[sub_resource type="LabelSettings" id="LabelSettings_2ek62"]
+font = ExtResource("3_i43mg")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_adn5o"]
+font = ExtResource("3_i43mg")
+font_size = 46
+
+[node name="questionTerminal" type="Area3D" unique_id=866031621 node_paths=PackedStringArray("blocking_wall")]
+script = ExtResource("1_adn5o")
+blocking_wall = NodePath("")
+
+[node name="Sketchfab_Scene" parent="." unique_id=124982220 instance=ExtResource("1_rd8k6")]
+transform = Transform3D(0.009, 0, 0, 0, 0.009, 0, 0, 0, 0.009, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1449625827]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.055664063, 0.26208496, 0.27197266)
+shape = SubResource("BoxShape3D_xeadb")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=707497971]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1083545278]
+offset_left = 5.0
+offset_top = 175.0
+offset_right = 801.0
+offset_bottom = 351.0
+text = "I DEVOUR STARS AND TRAP LIGHT ITSELF, YET I AM ENTIRELY
+INVISIBLE. TO FALL INTO ME IS TO NEVER RETURN. WHAT AM I ?
+answer in small letters without leaving any space..
+"
+label_settings = SubResource("LabelSettings_2ek62")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=276921748]
+offset_left = 6.0
+offset_top = 277.0
+offset_right = 368.0
+offset_bottom = 354.0
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=1304177958]
+offset_left = 421.0
+offset_top = 281.0
+offset_right = 618.0
+offset_bottom = 348.0
+text = "SUBMIT
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=127621355]
+offset_left = 26.0
+offset_top = 404.0
+offset_right = 221.0
+offset_bottom = 453.0
+text = "pop up text"
+label_settings = SubResource("LabelSettings_adn5o")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
+
+[editable path="Sketchfab_Scene"]

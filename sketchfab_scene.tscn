@@ -10,6 +10,11 @@
 [ext_resource type="Texture2D" uid="uid://dikbxo1dclsfg" path="res://graphics/environment/modular_dungeon_6.png" id="8_0cdd1"]
 [ext_resource type="Texture2D" uid="uid://bq3w5vv82155k" path="res://graphics/environment/modular_dungeon_7.png" id="9_2oflr"]
 [ext_resource type="Texture2D" uid="uid://b3nvntrwcqvbj" path="res://graphics/environment/modular_dungeon_8.png" id="10_4878l"]
+[ext_resource type="PackedScene" uid="uid://cb7unrtcw2sik" path="res://scenes/envi/puzzlewall.tscn" id="11_j4qky"]
+[ext_resource type="PackedScene" uid="uid://cj3mgal6dw4s1" path="res://scenes/envi/question_terminal.tscn" id="12_btxc6"]
+[ext_resource type="PackedScene" uid="uid://6twogaccmmf3" path="res://scenes/envi/riddlewall.tscn" id="13_oh8f5"]
+[ext_resource type="PackedScene" uid="uid://dp0e6d5ndiv13" path="res://scenes/envi/spacekey_2_wall.tscn" id="14_p8hqm"]
+[ext_resource type="PackedScene" uid="uid://cfwaxgfdicvm4" path="res://scenes/envi/spacewall_3.tscn" id="15_uingv"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r57si"]
 data = PackedVector3Array(-2, -2, 0, -2, 2, 4, -2, 2, 0, -2, -2, 0, -2, -2, 4, -2, 2, 4, 2, 2, 4, 2, 6, 0, 2, 6, 4, 2, 2, 4, 2, 2, 0, 2, 6, 0, 2, 2, 0, 2, -2, 4, 2, -2, 0, 2, 2, 0, 2, 2, 4, 2, -2, 4, 2, -2, 0, 2, -6, 4, 2, -6, 0, 2, -2, 0, 2, -2, 4, 2, -6, 4, -2, -2, 4, -2, -6, 0, -2, -6, 4, -2, -2, 4, -2, -2, 0, -2, -6, 0, -2, 2, 0, -2, 6, 4, -2, 6, 0, -2, 2, 0, -2, 2, 4, -2, 6, 4)
@@ -2139,3 +2144,40 @@ mesh = SubResource("ArrayMesh_2l3ep")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Sketchfab_model/Sketchfab_model/ebe5d367012c485885e7177390f3d5e2_fbx/RootNode/hall_Single/hall_Single_stonefloor_0/StaticBody3D" index="0" unique_id=1793471694]
 shape = SubResource("ConcavePolygonShape3D_uk5lr")
+
+[node name="Puzzlewall" parent="." index="1" unique_id=1904353248 instance=ExtResource("11_j4qky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 47.260204, -4.141815, -33.429367)
+
+[node name="questionTerminal" parent="." index="2" unique_id=866031621 node_paths=PackedStringArray("blocking_wall") instance=ExtResource("12_btxc6")]
+transform = Transform3D(-0.022739645, 0, -0.99974155, 0, 1, 0, 0.99974155, 0, -0.022739645, 29.45908, -3.308816, -66.6273)
+blocking_wall = NodePath("../Puzzlewall")
+
+[node name="normallwall" parent="." index="3" unique_id=928614242 instance=ExtResource("11_j4qky")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 33.01865, -4.141815, -63.77561)
+
+[node name="normalwall" parent="." index="4" unique_id=2028560746 instance=ExtResource("11_j4qky")]
+transform = Transform3D(-0.010716158, 0, -0.9999426, 0, 1, 0, 0.9999426, 0, -0.010716158, 26.692535, -4.141815, -69.979126)
+
+[node name="normalwall2" parent="." index="5" unique_id=678097948 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.0040666508, 0, -0.9999917, 0, 1, 0, 0.9999917, 0, 0.0040666508, 53.533897, -4.141815, -69.80168)
+
+[node name="normalwall3" parent="." index="6" unique_id=2015207973 instance=ExtResource("11_j4qky")]
+transform = Transform3D(-0.015864346, 0, -0.9998742, 0, 1, 0, 0.9998742, 0, -0.015864346, 41.340687, -4.141815, -56.040493)
+
+[node name="normalwall4" parent="." index="7" unique_id=543879993 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.0034208, 0, -0.9999941, 0, 1, 0, 0.9999941, 0, 0.0034208, 53.43433, -4.141815, -56.191006)
+
+[node name="Riddlewall" parent="." index="8" unique_id=1801245415 instance=ExtResource("13_oh8f5")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.068495, 0, -47.676846)
+
+[node name="normalwall5" parent="." index="9" unique_id=396447870 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.99998057, 0, -0.0062307906, 0, 1, 0, 0.0062307906, 0, 0.99998057, 23.086678, -0.06679487, -61.465088)
+
+[node name="normalwall6" parent="." index="10" unique_id=631594351 instance=ExtResource("11_j4qky")]
+transform = Transform3D(-0.011449132, 0, -0.99993455, 0, 1, 0, 0.99993455, 0, -0.011449132, 22.435051, -0.06679487, -13.8937435)
+
+[node name="spacekey2 wall" parent="." index="11" unique_id=1163413035 instance=ExtResource("14_p8hqm")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9159422, -18.167023)
+
+[node name="spacewall3" parent="." index="12" unique_id=755951371 instance=ExtResource("15_uingv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.116474)

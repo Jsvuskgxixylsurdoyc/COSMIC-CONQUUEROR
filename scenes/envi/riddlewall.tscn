@@ -1,0 +1,74 @@
+[gd_scene format=3 uid="uid://6twogaccmmf3"]
+
+[ext_resource type="Script" uid="uid://crn2wivyfqcyw" path="res://scenes/envi/riddlewall.gd" id="1_vcu3r"]
+[ext_resource type="PackedScene" uid="uid://kbev1shlu7a7" path="res://graphics/environment/dungeon/wall_arched.gltf" id="2_voitj"]
+[ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="3_x2ila"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_uubiw"]
+size = Vector3(4.1723633, 4.135681, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xpcd4"]
+size = Vector3(4.4188232, 4.159607, 1.7575684)
+
+[sub_resource type="LabelSettings" id="LabelSettings_esb25"]
+font = ExtResource("3_x2ila")
+font_size = 32
+
+[sub_resource type="LabelSettings" id="LabelSettings_mq8m7"]
+font = ExtResource("3_x2ila")
+font_size = 46
+
+[node name="Riddlewall" type="StaticBody3D" unique_id=1801245415]
+script = ExtResource("1_vcu3r")
+
+[node name="wall_arched2" parent="." unique_id=75079604 instance=ExtResource("2_voitj")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=13722684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0637207, 1.9339905, 0)
+shape = SubResource("BoxShape3D_uubiw")
+
+[node name="TriggerZone" type="Area3D" parent="." unique_id=668346302]
+collision_layer = 255
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone" unique_id=125935144]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15863037, 1.9708557, -0.03161621)
+shape = SubResource("BoxShape3D_xpcd4")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=441612656]
+
+[node name="Label" type="Label" parent="CanvasLayer" unique_id=1894880472]
+offset_left = 5.0
+offset_top = 175.0
+offset_right = 801.0
+offset_bottom = 351.0
+text = "I DEVOUR STARS AND TRAP LIGHT ITSELF, YET I AM ENTIRELY
+INVISIBLE. TO FALL INTO ME IS TO NEVER RETURN. WHAT AM I ?
+answer in small letters without leaving any space..
+"
+label_settings = SubResource("LabelSettings_esb25")
+
+[node name="LineEdit" type="LineEdit" parent="CanvasLayer" unique_id=1357264390]
+offset_left = 6.0
+offset_top = 277.0
+offset_right = 368.0
+offset_bottom = 354.0
+
+[node name="Button" type="Button" parent="CanvasLayer" unique_id=741135121]
+offset_left = 421.0
+offset_top = 281.0
+offset_right = 618.0
+offset_bottom = 348.0
+text = "SUBMIT
+"
+
+[node name="Label2" type="Label" parent="CanvasLayer" unique_id=790030246]
+offset_left = 26.0
+offset_top = 404.0
+offset_right = 221.0
+offset_bottom = 453.0
+text = "pop up text"
+label_settings = SubResource("LabelSettings_mq8m7")
+
+[connection signal="body_entered" from="TriggerZone" to="." method="_on_trigger_zone_body_entered"]
+[connection signal="body_exited" from="TriggerZone" to="." method="_on_trigger_zone_body_exited"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]

@@ -6,6 +6,8 @@
 [ext_resource type="PackedScene" uid="uid://hnnevv4i1l0i" path="res://scenes/entities/player/ui.tscn" id="4_nh4ur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_yel1f"]
+radius = 0.34423828
+height = 2.1931152
 
 [node name="Player" type="CharacterBody3D" unique_id=771273259 groups=["Player"]]
 collision_layer = 3
@@ -13,7 +15,7 @@ collision_mask = 29
 script = ExtResource("1_1hmtu")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=336183784]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.030298024, 1.0905128, 0.030379683)
 shape = SubResource("CapsuleShape3D_yel1f")
 disabled = true
 
