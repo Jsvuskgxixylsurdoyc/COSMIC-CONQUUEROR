@@ -20,6 +20,6 @@ func _process(delta: float) -> void:
 
 func _on_body_entered(body: Node3D) -> void: 
 	if body.name == "Player":
-		body.has_space_key = true
-		print("space key picked")
+		body.has_space_key += 1
+		print("space key picked:", body.has_space_key)
 		queue_free()

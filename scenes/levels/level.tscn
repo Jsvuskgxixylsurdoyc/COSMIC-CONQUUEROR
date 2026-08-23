@@ -64,11 +64,16 @@ transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05,
 [node name="Node3D" type="Node3D" parent="." unique_id=301606698]
 
 [node name="SpaceKey" parent="Node3D" unique_id=1692060292 instance=ExtResource("4_xb4v1")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 72.92757, -2.3340793, -42.61315)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 23.462814, 2.1884158, -58.802307)
 
-[node name="questionTerminal" parent="." unique_id=866031621 node_paths=PackedStringArray("blocking_wall") instance=ExtResource("6_mbbpy")]
+[node name="SpaceKey2" parent="Node3D" unique_id=1138114276 instance=ExtResource("4_xb4v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.29409623, 2.2234159, 32.351128)
+
+[node name="SpaceKey3" parent="Node3D" unique_id=1353658030 instance=ExtResource("4_xb4v1")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.068354, 6.3842735, -24.961166)
+
+[node name="questionTerminal" parent="." unique_id=866031621 instance=ExtResource("6_mbbpy")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 11.5850315, 0, -11.688248)
-blocking_wall = NodePath("")
 
 [editable path="Entities/Player"]
 [editable path="Entities/Player/Cameracontroller"]

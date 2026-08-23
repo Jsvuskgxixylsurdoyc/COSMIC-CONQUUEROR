@@ -15,6 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://6twogaccmmf3" path="res://scenes/envi/riddlewall.tscn" id="13_oh8f5"]
 [ext_resource type="PackedScene" uid="uid://dp0e6d5ndiv13" path="res://scenes/envi/spacekey_2_wall.tscn" id="14_p8hqm"]
 [ext_resource type="PackedScene" uid="uid://cfwaxgfdicvm4" path="res://scenes/envi/spacewall_3.tscn" id="15_uingv"]
+[ext_resource type="PackedScene" uid="uid://diekffejq3573" path="res://scenes/envi/escape.tscn" id="16_0cdd1"]
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_r57si"]
 data = PackedVector3Array(-2, -2, 0, -2, 2, 4, -2, 2, 0, -2, -2, 0, -2, -2, 4, -2, 2, 4, 2, 2, 4, 2, 6, 0, 2, 6, 4, 2, 2, 4, 2, 2, 0, 2, 6, 0, 2, 2, 0, 2, -2, 4, 2, -2, 0, 2, 2, 0, 2, 2, 4, 2, -2, 4, 2, -2, 0, 2, -6, 4, 2, -6, 0, 2, -2, 0, 2, -2, 4, 2, -6, 4, -2, -2, 4, -2, -6, 0, -2, -6, 4, -2, -2, 4, -2, -2, 0, -2, -6, 0, -2, 2, 0, -2, 6, 4, -2, 6, 0, -2, 2, 0, -2, 2, 4, -2, 6, 4)
@@ -2181,3 +2182,18 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.9159422, -18.167023)
 
 [node name="spacewall3" parent="." index="12" unique_id=755951371 instance=ExtResource("15_uingv")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 20.116474)
+
+[node name="normalwall7" parent="." index="13" unique_id=624794246 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 15.020029, 0.046323776, -6.4691916)
+
+[node name="normalwall8" parent="." index="14" unique_id=820142240 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 15.081043, -0.018894792, 6.7849665)
+
+[node name="normalwall9" parent="." index="15" unique_id=1138720841 instance=ExtResource("11_j4qky")]
+transform = Transform3D(0.99999994, 0, 0, 0, 1, 0, 0, 0, 0.99999994, 28.921932, -0.1384921, 6.4185805)
+
+[node name="normalwall10" parent="." index="16" unique_id=1289808642 instance=ExtResource("11_j4qky")]
+transform = Transform3D(-4.3711385e-08, 0, 0.99999994, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, 20.659369, 4.0451536, -23.91592)
+
+[node name="escape" parent="." index="17" unique_id=333429879 instance=ExtResource("16_0cdd1")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -20.742126, 4.1443596, -18.12944)

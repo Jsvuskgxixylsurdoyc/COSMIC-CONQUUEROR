@@ -1,6 +1,6 @@
 extends Control
-
-
+@onready var player = get_parent()
+@onready var key_label = $CanvasLayer/keycounter
 @onready var heart_container = $hearts/MarginContainer/HBoxContainer
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
 @onready var energy_bar = $EnergyBar/MarginContainer/TextureProgressBar
@@ -61,3 +61,13 @@ func change_stamina_alpha(value: float) -> void:
 
 func _change_alpha(value: float) -> void:
 	stamina_bar.modulate.a = value
+ 
+func _process(delta):
+	key_label.text = "Keys: " + str(player.has_space_key)
+
+func _on_button_pressed():
+	# 1. Unpause the game so the main menu buttons actually work!
+	get_tree().paused = false 
+	
+	# 2. Go back to the Main Menu (Make sure the path matches your exact file!)
+	get_tree().change_scene_to_file("res://main_menu.tscn")

@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://diekffejq3573"]
+
+[ext_resource type="PackedScene" uid="uid://chdqavgy0113c" path="res://graphics/environment/dungeon/wall_cracked.gltf" id="1_x4n1c"]
+[ext_resource type="Script" uid="uid://8idba3213y1d" path="res://trigger_zone.gd" id="2_lky8q"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1p3pd"]
+size = Vector3(4.8356934, 4.6427, 1)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5fetk"]
+size = Vector3(4.4188232, 4.159607, 1.7575684)
+
+[node name="escape" type="StaticBody3D" unique_id=333429879]
+
+[node name="wall_cracked2" parent="." unique_id=1561974511 instance=ExtResource("1_x4n1c")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1635795618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.17321777, 1.8213501, 0)
+shape = SubResource("BoxShape3D_1p3pd")
+
+[node name="TriggerZone" type="Area3D" parent="." unique_id=397598479]
+collision_layer = 255
+script = ExtResource("2_lky8q")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="TriggerZone" unique_id=339251146]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15863037, 1.9708557, -0.03161621)
+shape = SubResource("BoxShape3D_5fetk")
+
+[connection signal="body_entered" from="TriggerZone" to="TriggerZone" method="_on_body_entered"]
