@@ -1,72 +1,27 @@
+# 🌌 Cosmic Conqueror (The Adventures of Mishi)
 
-the adventures of mishi
+**Cosmic Conqueror** is a 3D sci-fi dungeon crawler where ancient stone ruins meet high-tech alien energy, built for the Daydream Srinagar game jam. 
 
+You play as Mishi, a brave space explorer who has crash-landed in a hostile alien labyrinth. To power the distant Warp Gate and escape back to her home planet, she must hunt down three scattered Space Key fragments. The dungeon is heavily guarded by undead Skeleton Warriors, hovering Skeleton Mages, and a massive Horned Boss. Will you conquer the cosmos or remain trapped in the depths?
 
+## 🎮 Controls
 
+* **W, A, S, D:** Walk / Move around
+* **Spacebar:** Jump
+* **1:** Change weapon
+* **2:** Change spell type (only works when the wand is equipped)
+* **Left Mouse Click:** Attack
+* **Right Mouse Click:** Defend *(Note: This is a purely visual animation and does not block damage—rely on your dodging skills!)*
 
+## 🧩 Riddle Solutions (Spoilers!)
 
+The path forward is blocked by magical riddle walls. To unlock them, you must type the correct passwords. 
 
-
-
-
-
-
-
-
-
-
-
-
-<a id="readme-top"></a>
-
-<!-- SHIELDS -->
-[![Contributors][contributors-shield]][contributors-url]
-[![Forks][forks-shield]][forks-url]
-[![Stargazers][stars-shield]][stars-url]
-[![Issues][issues-shield]][issues-url]
-[![MIT License][license-shield]][license-url]
-
-<!-- HEADER -->
-<br />
-<div align="center">
-    <a href="https://github.com/BudzioT/Godot_Super-Wakatime">
-        <img src="https://cloud-bo1ln2br1-hack-club-bot.vercel.app/0godotwaka22.png"  alt="Godot Wakatime"/>
-    </a>
-    <h3 align="center"> Godot Super Wakatime </h3>
-    <p align="center">
-        Tool to measure time spent in loved by many people game engine - Godot
-        <br />
-        Officially approved to use in events created by Hack Club
-        <br />
-        <br />
-        <a href="https://godotengine.org/asset-library/asset/3484">Get from Asset Lib</a>
-        ·
-        <a href="https://youtu.be/rqAc-YdVXyM">View Demo</a>
-        ·
-        <a href="https://github.com/BudzioT/Godot_Super-Wakatime/issues/new">Report Bug / Request Feature</a>
-    </p>
-</div>
-
-<!-- CONTENTS -->
-<details>
-    <summary>Table of Contents</summary>
-    <ol>
-        <li>
-            <a href="#about">About The Project</a>
-            <ul>
-                <li><a href="#built-with">Built Using</a></li>
-            </ul>
-        </li>
-        <li>
-            <a href="#getting-started">Getting Started</a>
-            <ul>
-                <li><a href="#installation">Installation</a></li>
-            </ul>
-        </li>
-        <li><a href="#usage">Usage</a></li>
-        <li><a href="#license">License</a></li>
-    </ol>
-</details>
+If you get stuck, here are the exact answers. **Note: All answers must be typed entirely in lowercase with no spaces.**
+* `blackhole`
+* `space`
+* `universe`
+* `gravity`
 
 
 <!-- ABOUT -->
