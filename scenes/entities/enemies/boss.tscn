@@ -69,7 +69,7 @@ spin_speed = 6
 [node name="skin" parent="." index="0" unique_id=884155204 instance=ExtResource("2_uu705")]
 transform = Transform3D(3, 0, 0, 0, 3, 0, 0, 0, 3, -1.1409127, 1.4181839, 0)
 
-[node name="Skeleton3D" parent="skin/Rig" parent_id_path=PackedInt32Array(884155204, 1569811151) index="0" unique_id=698912079]
+[node name="Skeleton3D" parent="skin/Rig" parent_id_path=PackedInt32Array(884155204, 2022833051) index="0" unique_id=665482950]
 bones/1/position = Vector3(0.0010285394, 0.39205012, 0.11441104)
 bones/1/rotation = Quaternion(0.12551807, 0.14550059, 0.018731497, 0.981185)
 bones/2/rotation = Quaternion(-6.938893e-18, 7.1054274e-15, 4.93038e-32, 1)
@@ -124,10 +124,10 @@ bones/41/rotation = Quaternion(-0.7071068, -7.279511e-08, -7.279509e-08, 0.70710
 bones/42/position = Vector3(-0.43928254, 0.9069868, 0.6016661)
 bones/42/rotation = Quaternion(-0.6917984, 0.12565506, 0.7031622, 0.105776794)
 
-[node name="Nagonford_Axe" parent="skin/Rig/Skeleton3D" index="0" unique_id=1428767640]
+[node name="Nagonford_Axe" parent="skin/Rig/Skeleton3D" index="0" unique_id=1477870970]
 transform = Transform3D(0.32311124, 0.019572362, 0.9461578, 0.945929, 0.02350045, -0.3235194, -0.028567139, 0.9995313, -0.010920581, -0.42946228, 0.7898329, 0.67604494)
 
-[node name="Nagonford_Axe" parent="skin/Rig/Skeleton3D/Nagonford_Axe" index="0" unique_id=1365349579]
+[node name="Nagonford_Axe" parent="skin/Rig/Skeleton3D/Nagonford_Axe" index="0" unique_id=656731062]
 transform = Transform3D(1, 0, 0, 0, 0.8660254, -0.5, 0, 0.5, 0.8660254, 0, 0, 0)
 
 [node name="RayCast3D" type="RayCast3D" parent="skin/Rig/Skeleton3D/Nagonford_Axe/Nagonford_Axe" index="0" unique_id=598919737]
@@ -137,10 +137,10 @@ collision_mask = 2
 [node name="Marker3D" type="Marker3D" parent="skin/Rig/Skeleton3D/Nagonford_Axe/Nagonford_Axe" index="1" unique_id=1165903411]
 transform = Transform3D(0.98336756, 0.16192275, -0.082273066, -0.18088317, 0.91402465, -0.36310315, 0.016403794, 0.37194473, 0.92811036, -0.0029227138, 1.232568, -0.0059832335)
 
-[node name="Nagonford_Cape" parent="skin/Rig/Skeleton3D" index="1" unique_id=1171610960]
+[node name="Nagonford_Cape" parent="skin/Rig/Skeleton3D" index="1" unique_id=1799550678]
 transform = Transform3D(0.9569571, -0.00023776857, 0.2902291, 0.0741568, 0.9670061, -0.24372104, -0.28059542, 0.25475302, 0.9254011, 0.0008244149, 1.1759709, 0.31912392)
 
-[node name="AnimationPlayer" parent="skin" index="1" unique_id=981895638]
+[node name="AnimationPlayer" parent="skin" index="1" unique_id=1953207037]
 active = false
 
 [node name="CollisionShape3D" parent="." index="1" unique_id=1785140212]

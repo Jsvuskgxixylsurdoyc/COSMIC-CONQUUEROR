@@ -3,8 +3,11 @@
 [ext_resource type="Script" uid="uid://bwxa37sr10quu" path="res://scenes/levels/level.gd" id="1_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://d2m3t0doy8nno" path="res://sketchfab_scene.tscn" id="2_b2cq8"]
 [ext_resource type="PackedScene" uid="uid://dxf550mv2w5wr" path="res://scenes/entities/player/player.tscn" id="2_bovvr"]
+[ext_resource type="PackedScene" uid="uid://b5e82ky8e3plm" path="res://scenes/entities/enemies/skeleton_mage.tscn" id="4_d4w6o"]
 [ext_resource type="PackedScene" uid="uid://cwsgptckwik2k" path="res://scenes/weapons/space_key.tscn" id="4_xb4v1"]
+[ext_resource type="PackedScene" uid="uid://df5wb0o4yjevm" path="res://scenes/entities/enemies/boss.tscn" id="5_mbbpy"]
 [ext_resource type="PackedScene" uid="uid://cj3mgal6dw4s1" path="res://scenes/envi/question_terminal.tscn" id="6_mbbpy"]
+[ext_resource type="PackedScene" uid="uid://bumjdlo62fen7" path="res://scenes/entities/enemies/skeletonwarrior.tscn" id="6_ouxo3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_bovvr"]
 sky_top_color = Color(0.32396206, 0.53820765, 1, 1)
@@ -44,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248
 [node name="Entities" type="Node3D" parent="." unique_id=1672535831]
 
 [node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 77.085, -4.348751, -41.900444)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.185341, 4.1011915, -14.204792)
 
 [node name="CollisionShape3D" parent="Entities/Player" index="0" unique_id=336183784]
 shape = SubResource("CapsuleShape3D_377w7")
@@ -58,6 +61,98 @@ max_limit_x = 1.5
 
 [node name="Camera3D" parent="Entities/Player/Cameracontroller" index="0" unique_id=166653984]
 transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05, 0.97824544, 0.20745079, 0.0017425608, -0.2074503, 0.978244, 0, 1.572339, 4.545592)
+
+[node name="boss" parent="Entities" unique_id=1131335652 instance=ExtResource("5_mbbpy")]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+notice_radius = 10.0
+
+[node name="SkeletonMage2" parent="Entities" unique_id=2088694109 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.210282, 0, 31.938456)
+notice_radius = 6.0
+
+[node name="SkeletonMage4" parent="Entities" unique_id=313980113 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.210282, 0, 32.245388)
+notice_radius = 6.0
+
+[node name="SkeletonMage5" parent="Entities" unique_id=1793593112 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.0906, 4.3672, -27.982084)
+notice_radius = 6.0
+
+[node name="SkeletonMage6" parent="Entities" unique_id=148289671 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10.180885, 4.3672, -29.28119)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior" parent="Entities" unique_id=2014462982 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4988136, 0, 23.600155)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior2" parent="Entities" unique_id=2081130835 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4988136, 0, 32.28528)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior3" parent="Entities" unique_id=1339117116 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 9.686433, 4.2043843, -28.784988)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior4" parent="Entities" unique_id=1065838152 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.471272, 4.2043843, -28.784988)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior5" parent="Entities" unique_id=692381092 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 14.868448, 0.4484086, 4.2769876)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior6" parent="Entities" unique_id=1966761182 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 15.035183, 0.43316722, -4.478712)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior7" parent="Entities" unique_id=1997665114 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 26.46966, 0.4484086, -31.456205)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior8" parent="Entities" unique_id=2117341361 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 24.71955, 0.4484086, -22.867579)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior9" parent="Entities" unique_id=1706939227 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 32.868713, 0.4484086, -31.339266)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior10" parent="Entities" unique_id=1608773280 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 32.868713, 0.4484086, -22.103983)
+notice_radius = 6.0
+
+[node name="SkeletonMage7" parent="Entities" unique_id=1171356383 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 18.626879, 0.002822876, -59.023933)
+notice_radius = 6.0
+
+[node name="SkeletonMage8" parent="Entities" unique_id=1018190032 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.653324, 0.13566995, -59.997826)
+notice_radius = 6.0
+
+[node name="SkeletonMage9" parent="Entities" unique_id=1153314292 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.331516, 0.058649898, -59.020824)
+notice_radius = 6.0
+
+[node name="SkeletonMage10" parent="Entities" unique_id=867875922 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 27.997898, 0.19887781, -59.65403)
+notice_radius = 6.0
+
+[node name="SkeletonMage11" parent="Entities" unique_id=1661225545 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 37.28137, -3.8597221, -74.206985)
+notice_radius = 6.0
+
+[node name="SkeletonMage12" parent="Entities" unique_id=612405225 instance=ExtResource("4_d4w6o")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 29.035446, -3.7399647, -75.52735)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior11" parent="Entities" unique_id=1727245413 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 30.288445, -3.9909556, -70.8706)
+notice_radius = 6.0
+
+[node name="Skeletonwarrior12" parent="Entities" unique_id=925259719 instance=ExtResource("6_ouxo3")]
+transform = Transform3D(-0.9997639, 0, -0.021727672, 0, 1, 0, 0.021727672, 0, -0.9997639, 36.9236, -3.904263, -66.286285)
+notice_radius = 6.0
 
 [node name="projectiles" type="Node3D" parent="." unique_id=1164612750]
 

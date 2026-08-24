@@ -4,6 +4,7 @@ extends Control
 @onready var heart_container = $hearts/MarginContainer/HBoxContainer
 @onready var spell_texture = $Spells/MarginContainer/TextureRect
 @onready var energy_bar = $EnergyBar/MarginContainer/TextureProgressBar
+@onready var pause_menu = $PauseMenu
 @onready var stamina_bar =$StaminaBar/CenterContainer/MarginContainer/TextureProgressBar
 var heart_scene: PackedScene = preload("res://scenes/entities/player/heart.tscn")
 var fire_texture = preload("res://graphics/ui/fire.png")
@@ -65,9 +66,40 @@ func _change_alpha(value: float) -> void:
 func _process(delta):
 	key_label.text = "Keys: " + str(player.has_space_key)
 
-func _on_button_pressed():
-	# 1. Unpause the game so the main menu buttons actually work!
-	get_tree().paused = false 
-	
-	# 2. Go back to the Main Menu (Make sure the path matches your exact file!)
-	get_tree().change_scene_to_file("res://main_menu.tscn")
+
+
+func  _input(event):
+	if event.is_action_pressed("ui_cancel"):
+		toggle_pause()
+
+func toggle_pause():
+	if get_tree().paused:
+		get_tree().paused = false
+		pause_menu.hide()
+		Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
+	else:
+		get_tree().paused = true
+		pause_menu.show()
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func _on_resume_pressed():
+	toggle_pause()
+
+
+
+func _on_mainmenu_pressed() -> void:
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/envi/main_menu.tscn")
+
+
+
+
+
+func _on_tryagain_pressed() -> void:
+	get_tree().paused = false
+	get_tree().reload_current_scene()
+
+
+func _on_return_menu_pressed():
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/envi/main_menu.tscn")

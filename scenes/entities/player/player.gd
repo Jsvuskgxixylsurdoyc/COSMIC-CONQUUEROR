@@ -5,7 +5,7 @@ extends CharacterBody3D
 @export var jump_height : float = 2.25
 @export var jump_time_to_peak : float = 0.4
 @export var jump_time_to_descent : float = 0.3
-var has_space_key = 0
+var has_space_key = 3
 @onready var jump_velocity : float = ((2.0 * jump_height) / jump_time_to_peak) * -1.0
 @onready var jump_gravity : float = ((-2.0 * jump_height) / (jump_time_to_peak * jump_time_to_peak))
 @onready var fall_gravity : float = ((-2.0 * jump_height) / (jump_time_to_descent * jump_time_to_descent))
@@ -41,7 +41,9 @@ var health = 5:
 		ui.update_health(value, value - health)
 		health = value
 		if health <= 0:
-			get_tree().quit()
+			$UI/GameOver.show()
+			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+			get_tree().paused = true
 var energy = 100:
 	set(value):
 		energy = min(100,value)
@@ -65,6 +67,7 @@ func _ready() -> void:
 	weapon_active = true
 	skin.switch_weapon(weapon_active)
 	ui.setup(health)
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 
 

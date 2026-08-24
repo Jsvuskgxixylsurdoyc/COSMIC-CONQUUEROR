@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://c5boe637iw2ds" path="res://main_menu.gd" id="1_vqmso"]
 [ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="2_hs5wf"]
+[ext_resource type="Texture2D" uid="uid://eyunh1o7x17m" path="res://graphics/mishi.png" id="3_hs5wf"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_y6r6x"]
 font = ExtResource("2_hs5wf")
@@ -20,15 +21,6 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vqmso")
 
-[node name="ColorRect" type="ColorRect" parent="." unique_id=377014830]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0.6039216, 1, 1)
-
 [node name="TitleLabel" type="Label" parent="." unique_id=1767441897]
 layout_mode = 1
 anchors_preset = 5
@@ -41,7 +33,17 @@ grow_horizontal = 2
 text = "the adventures of mishi"
 label_settings = SubResource("LabelSettings_y6r6x")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1189869367]
+[node name="TextureRect" type="TextureRect" parent="." unique_id=579548029]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_hs5wf")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect" unique_id=1189869367]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -55,19 +57,19 @@ offset_bottom = 67.5
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="play" type="Button" parent="VBoxContainer" unique_id=1980291628]
+[node name="play" type="Button" parent="TextureRect/VBoxContainer" unique_id=1980291628]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hs5wf")
 theme_override_font_sizes/font_size = 48
 text = "play"
 
-[node name="quit" type="Button" parent="VBoxContainer" unique_id=628775028]
+[node name="quit" type="Button" parent="TextureRect/VBoxContainer" unique_id=628775028]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_hs5wf")
 theme_override_font_sizes/font_size = 48
 text = "quit"
 
-[node name="StoryLabel" type="Label" parent="." unique_id=333416635]
+[node name="StoryLabel" type="Label" parent="TextureRect" unique_id=333416635]
 layout_mode = 1
 anchors_preset = 7
 anchor_left = 0.5
