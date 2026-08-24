@@ -19,6 +19,6 @@ The path forward is blocked by magical riddle walls. To unlock them, you must ty
 
 If you get stuck, here are the exact answers. **Note: All answers must be typed entirely in lowercase with no spaces.**
 * `blackhole`
-* `space`(Known Bug: The ancient alien translation software glitched! The second riddle wall accidentally repeats the question from the first, but the answer to move forward is still space!)
+* `space`
 * `universe`
 * `gravity`
