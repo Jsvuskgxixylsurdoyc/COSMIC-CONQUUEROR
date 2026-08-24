@@ -22,3 +22,4 @@ If you get stuck, here are the exact answers. **Note: All answers must be typed 
 * `space`
 * `universe`
 * `gravity`
+i fixed the riddle bug which is mentioned in the submission at the last moment
