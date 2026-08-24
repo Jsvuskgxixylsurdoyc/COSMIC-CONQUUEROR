@@ -12,7 +12,7 @@ You play as Mishi, a brave space explorer who has crash-landed in a hostile alie
 * **2:** Change spell type (only works when the wand is equipped)
 * **Left Mouse Click:** Attack
 * **Right Mouse Click:** Defend *(Note: This is a purely visual animation and does not block damage—rely on your dodging skills!)*
-
+ left shift sprint
 ## 🧩 Riddle Solutions (Spoilers!)
 
 The path forward is blocked by magical riddle walls. To unlock them, you must type the correct passwords. 
