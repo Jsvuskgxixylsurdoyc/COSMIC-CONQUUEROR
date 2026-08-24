@@ -1,6 +1,6 @@
 # 🌌 Cosmic Conqueror (The Adventures of Mishi)
 
-**Cosmic Conqueror** is a 3D sci-fi dungeon crawler where ancient stone ruins meet high-tech alien energy, built for the Daydream Srinagar game jam. 
+**Cosmic Conqueror** is a 3D sci-fi dungeon crawler where ancient stone ruins meet high-tech alien energy. 
 
 You play as Mishi, a brave space explorer who has crash-landed in a hostile alien labyrinth. To power the distant Warp Gate and escape back to her home planet, she must hunt down three scattered Space Key fragments. The dungeon is heavily guarded by undead Skeleton Warriors, hovering Skeleton Mages, and a massive Horned Boss. Will you conquer the cosmos or remain trapped in the depths?
 
