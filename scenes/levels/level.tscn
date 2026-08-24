@@ -47,7 +47,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.3947234, 3.4064317, 11.248
 [node name="Entities" type="Node3D" parent="." unique_id=1672535831]
 
 [node name="Player" parent="Entities" unique_id=771273259 instance=ExtResource("2_bovvr")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -14.185341, 4.1011915, -14.204792)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 78.26283, -3.8489811, -41.20911)
 
 [node name="CollisionShape3D" parent="Entities/Player" index="0" unique_id=336183784]
 shape = SubResource("CapsuleShape3D_377w7")
@@ -64,7 +64,7 @@ transform = Transform3D(0.9999985, 0.00045760605, -0.0016842706, -9.8247976e-05,
 
 [node name="boss" parent="Entities" unique_id=1131335652 instance=ExtResource("5_mbbpy")]
 transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
-notice_radius = 10.0
+notice_radius = 5.0
 
 [node name="SkeletonMage2" parent="Entities" unique_id=2088694109 instance=ExtResource("4_d4w6o")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.210282, 0, 31.938456)

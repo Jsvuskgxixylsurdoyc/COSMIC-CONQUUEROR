@@ -5,14 +5,11 @@
 [ext_resource type="Texture2D" uid="uid://gi44t0kmhjr8" path="res://graphics/ui/bar_color.png" id="3_4r2x4"]
 [ext_resource type="Texture2D" uid="uid://ca408dm1c5imy" path="res://graphics/ui/circle.png" id="4_uoosy"]
 [ext_resource type="FontFile" uid="uid://bk3j022f76ycq" path="res://graphics/ui/The Wild Breath of Zelda.otf" id="5_o2a6g"]
+[ext_resource type="Texture2D" uid="uid://c0gyrtd4cuqmg" path="res://graphics/victory.png" id="6_de3ta"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_uoosy"]
 font = ExtResource("5_o2a6g")
 font_size = 32
-
-[sub_resource type="LabelSettings" id="LabelSettings_o2a6g"]
-font = ExtResource("5_o2a6g")
-font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_de3ta"]
 font = ExtResource("5_o2a6g")
@@ -21,6 +18,11 @@ font_size = 40
 [sub_resource type="LabelSettings" id="LabelSettings_14lls"]
 font = ExtResource("5_o2a6g")
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_qw42w"]
+font = ExtResource("5_o2a6g")
+font_size = 46
+font_color = Color(0.80748856, 0.066909075, 0, 1)
 
 [node name="UI" type="Control" unique_id=1707512771]
 layout_mode = 3
@@ -133,37 +135,42 @@ layout_mode = 0
 offset_right = 1152.0
 offset_bottom = 640.0
 
-[node name="Label" type="Label" parent="victoryscreen" unique_id=1921786355]
-layout_mode = 0
-offset_left = 160.0
-offset_top = 68.0
-offset_right = 1055.0
-offset_bottom = 605.0
-text = "       congratulations
-              you have
-          all the keys
-commencing the warp to 
-       the home planet"
-label_settings = SubResource("LabelSettings_o2a6g")
+[node name="TextureRect" type="TextureRect" parent="victoryscreen" unique_id=1651005328]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -567.0
+offset_top = -309.0
+offset_right = 567.0
+offset_bottom = 319.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_de3ta")
+expand_mode = 1
 
-[node name="exit game" type="Button" parent="victoryscreen" unique_id=32954737]
+[node name="Button2" type="Button" parent="victoryscreen/TextureRect" unique_id=293989847]
+layout_mode = 0
+offset_left = 647.0
+offset_top = 237.0
+offset_right = 939.0
+offset_bottom = 316.0
+theme_override_fonts/font = ExtResource("5_o2a6g")
+theme_override_font_sizes/font_size = 48
+text = "go back "
+
+[node name="exit game" type="Button" parent="victoryscreen/TextureRect" unique_id=32954737]
 layout_mode = 1
 anchors_preset = -1
-offset_left = 79.0
-offset_top = 195.0
-offset_right = 301.0
-offset_bottom = 283.0
+offset_left = 203.0
+offset_top = 229.0
+offset_right = 425.0
+offset_bottom = 317.0
+theme_override_fonts/font = ExtResource("5_o2a6g")
 theme_override_font_sizes/font_size = 45
 text = "exit game"
-
-[node name="Button2" type="Button" parent="victoryscreen" unique_id=293989847]
-layout_mode = 0
-offset_left = 770.0
-offset_top = 196.0
-offset_right = 1062.0
-offset_bottom = 275.0
-theme_override_font_sizes/font_size = 32
-text = "go back to explore"
 
 [node name="PauseMenu" type="ColorRect" parent="." unique_id=1414168967]
 process_mode = 3
@@ -262,7 +269,25 @@ theme_override_fonts/font = ExtResource("5_o2a6g")
 theme_override_font_sizes/font_size = 67
 text = "try again"
 
-[connection signal="pressed" from="victoryscreen/exit game" to="." method="_on_button_pressed"]
+[node name="KeyWarningLabel" type="Label" parent="." unique_id=618370619]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -136.5
+offset_top = -24.5
+offset_right = 136.5
+offset_bottom = 24.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "not enough keys"
+label_settings = SubResource("LabelSettings_qw42w")
+
+[connection signal="pressed" from="victoryscreen/TextureRect/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="pressed" from="victoryscreen/TextureRect/exit game" to="." method="_on_exit_game_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/resume" to="." method="_on_resume_pressed"]
 [connection signal="pressed" from="PauseMenu/VBoxContainer/mainmenu" to="." method="_on_mainmenu_pressed"]
 [connection signal="pressed" from="GameOver/VBoxContainer/ReturnMenu" to="." method="_on_return_menu_pressed"]

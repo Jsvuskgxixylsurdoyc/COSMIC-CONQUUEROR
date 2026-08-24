@@ -63,8 +63,8 @@ func change_stamina_alpha(value: float) -> void:
 func _change_alpha(value: float) -> void:
 	stamina_bar.modulate.a = value
  
-func _process(delta):
-	key_label.text = "Keys: " + str(player.has_space_key)
+func _process(_delta):
+	key_label.text = "Keys:  "+ str(player.has_space_key) + " / 3"
 
 
 
@@ -103,3 +103,23 @@ func _on_tryagain_pressed() -> void:
 func _on_return_menu_pressed():
 	get_tree().paused = false
 	get_tree().change_scene_to_file("res://scenes/envi/main_menu.tscn")
+
+
+
+
+func _on_exit_game_pressed() -> void:
+	# Always unpause before changing scenes!
+	get_tree().paused = false
+	get_tree().change_scene_to_file("res://scenes/envi/main_menu.tscn")
+
+
+
+func _on_button_2_pressed() -> void:
+ # 1. Unpause the game
+	get_tree().paused = false
+	
+	# 2. Hide the Victory menu (change this path if your node is named differently)
+	$victoryscreen.hide() 
+	
+	# 3. Lock the mouse back to the center of the screen for 3D gameplay
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
