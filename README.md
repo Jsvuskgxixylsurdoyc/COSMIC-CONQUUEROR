@@ -27,7 +27,7 @@ W, A, S, D: Walk / Move around
 
 
 
-🧩 Riddle Solutions (Spoilers!)
+Riddle Solutions (Spoilers!)
 
 The path forward is blocked by magical riddle walls. To unlock them, you must type the correct passwords. you need to physically touch and go to the walls to see riddle and then answer, you have to collect the space keys and touch the crates to open them. PLEEASE DONT ASSUME THE GAME IS BROKEN IT IS COMPLETELY FINE.
 i hope yall enjoy the game and answer all the riddles and defeat the bosses :3
