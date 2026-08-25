@@ -15,7 +15,7 @@ You play as Mishi, a brave space explorer who has crash-landed in a hostile alie
  left shift sprint
 ## 🧩 Riddle Solutions (Spoilers!)
 
-The path forward is blocked by magical riddle walls. To unlock them, you must type the correct passwords. you need to physically touch and go to the walls to see riddle and then answer.
+The path forward is blocked by magical riddle walls. To unlock them, you must type the correct passwords. you need to physically touch and go to the walls to see riddle and then answer, you have to collect the space keys and touch the crates to open them. PLEEASE DONT ASSUME THE GAME IS BROKEN IT IS COMPLETELY FINE
 
 If you get stuck, here are the exact answers. **Note: All answers must be typed entirely in lowercase with no spaces.**
 * `blackhole`
